@@ -40,12 +40,13 @@ services:
       - key: EMAIL_FROM
         sync: false
       # Recipe AI - the Python inference service defined further down in this file.
-      # The host property omits the scheme, which the backend normalises to https.
+      # `property: host` would inject the private-network hostname, which a free
+      # web service cannot receive traffic on, so reference its public URL instead.
       - key: AI_SERVICE_URL
         fromService:
           type: web
           name: recipebox-ai
-          property: host
+          envVarKey: RENDER_EXTERNAL_URL
       - key: AI_SERVICE_TOKEN
         fromService:
           type: web
