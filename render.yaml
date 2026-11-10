@@ -75,6 +75,10 @@ services:
     healthCheckPath: /health
     autoDeploy: true
     envVars:
+      # The pinned scikit-learn/scipy/pandas range does not have wheels for the
+      # Python 3.14 default Render now uses for new services.
+      - key: PYTHON_VERSION
+        value: "3.12.6"
       # Shared bearer token; the backend copies this same value via fromService.
       - key: AI_SERVICE_TOKEN
         generateValue: true
