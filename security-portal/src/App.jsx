@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 const API = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+const APP_URL = (import.meta.env.VITE_APP_URL || 'http://localhost:5173').replace(/\/$/, '');
 const TOKEN_KEY = 'recipehub.security-token';
 const ROLE_LABELS = { guest: 'Guest', user: 'User', admin: 'Administrator', security_admin: 'Security Administrator' };
 const ROLE_IDS = Object.keys(ROLE_LABELS);
@@ -88,7 +89,7 @@ export default function App() {
         <label>Password<input autoComplete="current-password" type="password" value={password} required onChange={(event) => setPassword(event.target.value)} /></label>
         {error && <p className="error" role="alert">{error}</p>}
         <button className="primary" disabled={busy}>{busy ? 'Checking access…' : 'Sign in securely'}</button>
-        <a href="http://localhost:5173" rel="noreferrer">Return to RecipeHub</a>
+        <a href={APP_URL} rel="noreferrer">Return to RecipeHub</a>
       </form>
     </main>
   );
