@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useApp } from '../state/AppContext';
-import { api } from '../services/api';
+import { api, resolveImageUrl } from '../services/api';
 
 /** The signed-in user's own recipes (including drafts). */
 export default function MyRecipes({ onBack, onOpenRecipe, onCreate, onEdit }) {
@@ -58,7 +58,7 @@ export default function MyRecipes({ onBack, onOpenRecipe, onCreate, onEdit }) {
               {!loading && !error && items.map((r) => (
                 <div key={r.id} className="fav-card">
                   <button type="button" className="rcard__open" style={{ borderRadius: 16 }} onClick={() => onOpenRecipe(r.id)} aria-label={`Open ${r.title}`} />
-                  <div className="photo"><img src={r.image || r.imageUrl} alt={`${r.title} recipe`} /></div>
+                  <div className="photo"><img src={resolveImageUrl(r.image || r.imageUrl)} alt={`${r.title} recipe`} /></div>
                   <p className="fav-card__title">{r.title}</p>
                   <p className="fav-card__time">{r.time || '—'}</p>
                   <p className="fav-card__rating">{r.isPublished ? 'Published' : 'Draft'}</p>

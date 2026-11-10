@@ -1,5 +1,7 @@
 node_modules/
-backend/uploads/recipes/
+# backend/uploads/recipes/ is intentionally NOT ignored: Render's free tier has no
+# persistent disk, so uploaded photos only exist on the deployed service if they are
+# committed. New uploads made in production are still lost on the next deploy.
 .env
 .env.local
 .env.*.local

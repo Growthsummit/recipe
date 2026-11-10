@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { StarIcon } from '../components/Icons';
 import { useApp } from '../state/AppContext';
 import { presentationFor } from '../data/recipes';
-import { api } from '../services/api';
+import { api, resolveImageUrl } from '../services/api';
 import { connectMetaMaskWallet, getMetaMaskStatus, registerRecipeOnSepolia } from '../blockchain/ethereum';
 
 function RatingStars({ value, onSelect, disabled }) {
@@ -270,7 +270,7 @@ export default function RecipeDetails({ recipeId, onBack, onOpenRecipe, onEditRe
           </button>
 
           <div className="rcard d-card">
-            <div className="photo"><img src={recipe.image || recipe.imageUrl} alt={`${recipe.title} recipe`} /></div>
+            <div className="photo"><img src={resolveImageUrl(recipe.image || recipe.imageUrl)} alt={`${recipe.title} recipe`} /></div>
             <p className="rcard__title">{recipe.title}</p>
             <StarIcon className="rcard__star" />
             <p className="rcard__rating" style={{ left: 39 }}>{recipe.rating}</p>

@@ -12,6 +12,27 @@
 const BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/+$/, '');
 const TOKEN_KEY = 'recipebox.token';
 
+/** Origin of the backend service, e.g. `https://recipebox-api.onrender.com`. */
+export const API_ORIGIN = BASE_URL.replace(/\/api\/?$/, '');
+
+/**
+ * Recipes store uploaded photos as a relative path (`/uploads/recipes/x.jpg`)
+ * served by the backend, while the seeded artwork (`/images/recipes/x.png`) is
+ * served by the frontend itself. Only backend uploads need the API origin, so
+ * `./images/...` and external URLs are returned untouched. Rows saved before
+ * deployment may also hold an absolute `http://localhost:5000/...` URL - those
+ * are re-pointed at the current API origin.
+ */
+export function resolveImageUrl(url) {
+  if (!url || typeof url !== 'string') return '';
+  const index = url.indexOf('/uploads/');
+  if (index === 0) return `${API_ORIGIN}${url}`;
+  if (index !== -1 && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\//i.test(url)) {
+    return `${API_ORIGIN}${url.slice(index)}`;
+  }
+  return url;
+}
+
 export const tokenStore = {
   get() {
     try {

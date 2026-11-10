@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useApp } from '../state/AppContext';
-import { api } from '../services/api';
+import { api, resolveImageUrl } from '../services/api';
 import { registerRecipeOnSepolia } from '../blockchain/ethereum';
 
 const DIFFICULTIES = ['Easy', 'Medium', 'Hard'];
@@ -206,7 +206,7 @@ export default function RecipeForm({ recipe, onBack, onSaved }) {
               />
             </label>
             {imageFile && <p className="field-hint">{imageFile.name} is selected. It will replace the current recipe image when you save.</p>}
-            {previewImage && !imagePreviewFailed && <div className="recipe-image-preview"><img src={previewImage} alt="Recipe image preview" onError={() => setImagePreviewFailed(true)} /></div>}
+            {previewImage && !imagePreviewFailed && <div className="recipe-image-preview"><img src={resolveImageUrl(previewImage)} alt="Recipe image preview" onError={() => setImagePreviewFailed(true)} /></div>}
             {previewImage && imagePreviewFailed && (
               <p className="field-hint">
                 {imageFile

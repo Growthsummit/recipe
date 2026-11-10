@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StarIcon } from '../components/Icons';
 import { useApp } from '../state/AppContext';
-import { api } from '../services/api';
+import { api, resolveImageUrl } from '../services/api';
 
 export default function Favourites({ onOpenRecipe }) {
   const { toggleFavourite, isAuthenticated, initialising, requireAuth, favourites, favouritesCount } = useApp();
@@ -74,7 +74,7 @@ export default function Favourites({ onOpenRecipe }) {
         {!loading && !error && items.map((r) => (
           <div key={r.id} className="fav-card">
             <button type="button" className="rcard__open" style={{ borderRadius: 16 }} onClick={() => onOpenRecipe(r.id)} aria-label={`Open ${r.title}`} />
-            <div className="photo"><img src={r.image} alt="" /></div>
+            <div className="photo"><img src={resolveImageUrl(r.image)} alt="" /></div>
             <p className="fav-card__title">{r.title}</p>
             <StarIcon className="fav-card__star" />
             <p className="fav-card__rating">{r.rating}</p>

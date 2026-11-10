@@ -12,7 +12,7 @@ const IMAGE_TYPES = {
   'image/webp': { extension: 'webp', matches: (bytes) => bytes.length >= 12 && bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WEBP' },
 };
 
-async function saveImage(buffer, contentType, req) {
+async function saveImage(buffer, contentType) {
   const imageType = IMAGE_TYPES[contentType];
   if (!imageType) throw badRequest('Use a JPG, PNG, or WebP image.', 'IMAGE_TYPE_INVALID');
   if (!Buffer.isBuffer(buffer) || buffer.length === 0) throw badRequest('The image file is empty.', 'IMAGE_EMPTY');
@@ -21,11 +21,14 @@ async function saveImage(buffer, contentType, req) {
   const filename = `${randomUUID()}.${imageType.extension}`;
   await fs.mkdir(IMAGE_DIRECTORY, { recursive: true });
   await fs.writeFile(path.join(IMAGE_DIRECTORY, filename), buffer, { flag: 'wx' });
-  return `${req.protocol}://${req.get('host')}/uploads/recipes/${filename}`;
+  // Store a host-independent path: the API is served from a different origin in
+  // production (Render) than in development (localhost), so an absolute URL
+  // saved here would leak localhost into the database and break the deployed app.
+  return `/uploads/recipes/${filename}`;
 }
 
 export const uploadRecipeImage = asyncHandler(async (req, res) => {
   const contentType = String(req.get('content-type') || '').split(';')[0].trim().toLowerCase();
-  const imageUrl = await saveImage(req.body, contentType, req);
+  const imageUrl = await saveImage(req.body, contentType);
   res.status(201).json({ success: true, data: { imageUrl } });
 });
