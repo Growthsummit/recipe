@@ -1,0 +1,552 @@
+{
+  "seed": 42,
+  "models": {
+    "recommendation": {
+      "model": "TF-IDF + cosine similarity",
+      "evaluation": "per-user chronological 80/20 split of positive ratings, with a fixed seeded sample of at most 500 users; relevance is rating >= 4; test set excludes no future recipes from the candidate catalog",
+      "limitations": "Ratings are implicit relevance labels; the benchmark covers Food.com users with at least four positive ratings and does not establish production user satisfaction.",
+      "metrics": {
+        "model": "tfidf_recommendation",
+        "training_rows": 12834,
+        "users_evaluated": 500,
+        "precision_at_k": 0.0012,
+        "recall_at_k": 0.001755926251097454,
+        "f1_at_k": 0.001425686111441131,
+        "catalog_coverage": 0.0412504028359652,
+        "k": 10
+      },
+      "saturation": [
+        {
+          "model": "tfidf_recommendation",
+          "training_percent": 20,
+          "training_rows": 2543,
+          "users_evaluated": 500,
+          "precision_at_k": 0.0008,
+          "recall_at_k": 0.001170617500731636,
+          "f1_at_k": 0.0009504574076274208,
+          "catalog_coverage": 0.051133311848748524,
+          "k": 10
+        },
+        {
+          "model": "tfidf_recommendation",
+          "training_percent": 40,
+          "training_rows": 4943,
+          "users_evaluated": 500,
+          "precision_at_k": 0.0006,
+          "recall_at_k": 0.000877963125548727,
+          "f1_at_k": 0.0007128430557205655,
+          "catalog_coverage": 0.049533903868418855,
+          "k": 10
+        },
+        {
+          "model": "tfidf_recommendation",
+          "training_percent": 60,
+          "training_rows": 7456,
+          "users_evaluated": 500,
+          "precision_at_k": 0.0004,
+          "recall_at_k": 0.000585308750365818,
+          "f1_at_k": 0.0004752287038137104,
+          "catalog_coverage": 0.046740907843067045,
+          "k": 10
+        },
+        {
+          "model": "tfidf_recommendation",
+          "training_percent": 80,
+          "training_rows": 10084,
+          "users_evaluated": 500,
+          "precision_at_k": 0.001,
+          "recall_at_k": 0.0014632718759145448,
+          "f1_at_k": 0.001188071759534276,
+          "catalog_coverage": 0.043279502512502836,
+          "k": 10
+        },
+        {
+          "model": "tfidf_recommendation",
+          "training_percent": 100,
+          "training_rows": 12834,
+          "users_evaluated": 500,
+          "precision_at_k": 0.0012,
+          "recall_at_k": 0.001755926251097454,
+          "f1_at_k": 0.001425686111441131,
+          "catalog_coverage": 0.0412504028359652,
+          "k": 10
+        }
+      ]
+    },
+    "random_forest": {
+      "model": "RandomForestRegressor",
+      "target": "log1p(Food.com interactions after the 80th percentile date)",
+      "cutoff_utc": "2013-07-28T00:00:00+00:00",
+      "split": "fixed random 80/20 recipe split; all predictors use pre-cutoff data",
+      "train_recipes": 67024,
+      "test_recipes": 16757,
+      "metrics": {
+        "mae_log1p": 0.2611463703450911,
+        "rmse_log1p": 0.4068763493256399,
+        "r2_log1p": 0.21643638691465095,
+        "mae_interactions": 0.5010203834135144
+      },
+      "feature_importance": [
+        {
+          "feature": "numeric__prior_interactions",
+          "importance": 0.24502870291964624
+        },
+        {
+          "feature": "numeric__nutrition_calories",
+          "importance": 0.2016929554127647
+        },
+        {
+          "feature": "numeric__missingindicator_prior_mean_rating",
+          "importance": 0.19680022298421554
+        },
+        {
+          "feature": "numeric__minutes",
+          "importance": 0.10440670433256946
+        },
+        {
+          "feature": "numeric__n_steps",
+          "importance": 0.08989308100947381
+        },
+        {
+          "feature": "numeric__n_ingredients",
+          "importance": 0.07953787271434999
+        },
+        {
+          "feature": "numeric__prior_mean_rating",
+          "importance": 0.047370078945646515
+        },
+        {
+          "feature": "category__category_weeknight",
+          "importance": 0.007366150988746356
+        },
+        {
+          "feature": "category__category_60-minutes-or-less",
+          "importance": 0.006280376265379688
+        },
+        {
+          "feature": "category__category_30-minutes-or-less",
+          "importance": 0.005819582553848679
+        },
+        {
+          "feature": "category__category_time-to-make",
+          "importance": 0.004707232917985546
+        },
+        {
+          "feature": "category__category_15-minutes-or-less",
+          "importance": 0.0030639885999138323
+        },
+        {
+          "feature": "category__category_lactose",
+          "importance": 0.0020623626434583195
+        },
+        {
+          "feature": "category__category_course",
+          "importance": 0.0016120118957601514
+        },
+        {
+          "feature": "category__category_Uncategorized",
+          "importance": 0.0011059430092287905
+        },
+        {
+          "feature": "category__category_bacon",
+          "importance": 0.0010708798190680465
+        },
+        {
+          "feature": "category__category_curries",
+          "importance": 0.0008458283048691414
+        },
+        {
+          "feature": "category__category_celebrity",
+          "importance": 0.000596250180217885
+        },
+        {
+          "feature": "category__category_main-ingredient",
+          "importance": 0.00030779907895417164
+        },
+        {
+          "feature": "category__category_ham",
+          "importance": 0.0002511854342494973
+        },
+        {
+          "feature": "category__category_danish",
+          "importance": 0.00015885127190098982
+        },
+        {
+          "feature": "category__category_preparation",
+          "importance": 1.956735290414279e-05
+        },
+        {
+          "feature": "category__category_cuisine",
+          "importance": 1.8580766911649278e-06
+        },
+        {
+          "feature": "category__category_dietary",
+          "importance": 5.132881574145777e-07
+        },
+        {
+          "feature": "category__category_healthy",
+          "importance": 0.0
+        },
+        {
+          "feature": "category__category_low-protein",
+          "importance": 0.0
+        },
+        {
+          "feature": "category__category_number-of-servings",
+          "importance": 0.0
+        },
+        {
+          "feature": "category__category_occasion",
+          "importance": 0.0
+        },
+        {
+          "feature": "category__category_oysters",
+          "importance": 0.0
+        },
+        {
+          "feature": "category__category_infrequent_sklearn",
+          "importance": 0.0
+        }
+      ],
+      "saturation": [
+        {
+          "model": "random_forest",
+          "training_percent": 20,
+          "training_rows": 13404,
+          "mae_log1p": 0.26387593054861475,
+          "rmse_log1p": 0.4116641750962614,
+          "r2_log1p": 0.1978870712805939,
+          "mae_interactions": 0.5065037780275953
+        },
+        {
+          "model": "random_forest",
+          "training_percent": 40,
+          "training_rows": 26809,
+          "mae_log1p": 0.2646964324350894,
+          "rmse_log1p": 0.4101181144514846,
+          "r2_log1p": 0.20390064543235797,
+          "mae_interactions": 0.507335088399034
+        },
+        {
+          "model": "random_forest",
+          "training_percent": 60,
+          "training_rows": 40214,
+          "mae_log1p": 0.2621238228741935,
+          "rmse_log1p": 0.4089016471621365,
+          "r2_log1p": 0.20861632388024576,
+          "mae_interactions": 0.5034744871772963
+        },
+        {
+          "model": "random_forest",
+          "training_percent": 80,
+          "training_rows": 53619,
+          "mae_log1p": 0.2617285067148574,
+          "rmse_log1p": 0.4079516730290904,
+          "r2_log1p": 0.21228919108532718,
+          "mae_interactions": 0.5021621042307522
+        },
+        {
+          "model": "random_forest",
+          "training_percent": 100,
+          "training_rows": 67024,
+          "mae_log1p": 0.2609730758547809,
+          "rmse_log1p": 0.4071565068019416,
+          "r2_log1p": 0.21535695931392362,
+          "mae_interactions": 0.5007761430303947
+        }
+      ]
+    },
+    "kmeans": {
+      "model": "KMeans",
+      "feature_sources": [
+        "TF-IDF recipe ingredients",
+        "scaled cooking time",
+        "scaled ingredient count",
+        "scaled step count"
+      ],
+      "recipes": 83897,
+      "selected_k": 3,
+      "selection_rule": "highest silhouette among k=2..8 on a fixed reproducible sample; elbow inertias also saved",
+      "selection_sample_size": 8000,
+      "selection": [
+        {
+          "k": 2,
+          "inertia": 24001.448760631378,
+          "silhouette": 0.21826723283379526
+        },
+        {
+          "k": 3,
+          "inertia": 18467.879313947447,
+          "silhouette": 0.26413559069138626
+        },
+        {
+          "k": 4,
+          "inertia": 16242.70085846513,
+          "silhouette": 0.20285076739208488
+        },
+        {
+          "k": 5,
+          "inertia": 14810.791520011433,
+          "silhouette": 0.21983703720784348
+        },
+        {
+          "k": 6,
+          "inertia": 13627.09829278578,
+          "silhouette": 0.22493250486517288
+        },
+        {
+          "k": 7,
+          "inertia": 12604.627635500212,
+          "silhouette": 0.22210506373723243
+        },
+        {
+          "k": 8,
+          "inertia": 11894.171642732896,
+          "silhouette": 0.22228265636998562
+        }
+      ],
+      "silhouette_sample": 0.272903208195955,
+      "clusters": [
+        {
+          "cluster": 0,
+          "recipes": 30252,
+          "avg_minutes": 63.216382387941294,
+          "avg_ingredients": 12.62141346026709,
+          "top_categories": [
+            "60-minutes-or-less",
+            "time-to-make",
+            "30-minutes-or-less",
+            "weeknight",
+            "15-minutes-or-less"
+          ],
+          "top_ingredients": [
+            "salt",
+            "butter",
+            "onion",
+            "garlic cloves",
+            "olive oil",
+            "sugar",
+            "eggs",
+            "water",
+            "all-purpose flour",
+            "flour"
+          ]
+        },
+        {
+          "cluster": 1,
+          "recipes": 4204,
+          "avg_minutes": 1434.9229305423407,
+          "avg_ingredients": 9.705280685061846,
+          "top_categories": [
+            "course",
+            "time-to-make",
+            "weeknight",
+            "main-ingredient",
+            "preparation"
+          ],
+          "top_ingredients": [
+            "salt",
+            "onion",
+            "water",
+            "garlic cloves",
+            "sugar",
+            "pepper",
+            "olive oil",
+            "brown sugar",
+            "butter",
+            "black pepper"
+          ]
+        },
+        {
+          "cluster": 2,
+          "recipes": 49441,
+          "avg_minutes": 34.32790598895654,
+          "avg_ingredients": 7.0842418235877105,
+          "top_categories": [
+            "15-minutes-or-less",
+            "30-minutes-or-less",
+            "60-minutes-or-less",
+            "time-to-make",
+            "weeknight"
+          ],
+          "top_ingredients": [
+            "salt",
+            "butter",
+            "sugar",
+            "olive oil",
+            "water",
+            "onion",
+            "eggs",
+            "milk",
+            "garlic cloves",
+            "pepper"
+          ]
+        }
+      ],
+      "saturation": [
+        {
+          "model": "kmeans",
+          "training_percent": 20,
+          "training_rows": 13423,
+          "inertia": 31761.16256986568,
+          "validation_silhouette": 0.27130854790831915
+        },
+        {
+          "model": "kmeans",
+          "training_percent": 40,
+          "training_rows": 26846,
+          "inertia": 63563.113861618556,
+          "validation_silhouette": 0.2665842581235842
+        },
+        {
+          "model": "kmeans",
+          "training_percent": 60,
+          "training_rows": 40270,
+          "inertia": 95463.43042348076,
+          "validation_silhouette": 0.27480917720789255
+        },
+        {
+          "model": "kmeans",
+          "training_percent": 80,
+          "training_rows": 53693,
+          "inertia": 127456.45833586063,
+          "validation_silhouette": 0.2692141023892909
+        },
+        {
+          "model": "kmeans",
+          "training_percent": 100,
+          "training_rows": 67117,
+          "inertia": 158493.67093778122,
+          "validation_silhouette": 0.26842361837401624
+        },
+        {
+          "model": "kmeans_users",
+          "training_percent": 20,
+          "training_rows": 9142,
+          "inertia": 192585.14758777423,
+          "validation_silhouette": null
+        },
+        {
+          "model": "kmeans_users",
+          "training_percent": 40,
+          "training_rows": 18285,
+          "inertia": 483992.297889119,
+          "validation_silhouette": null
+        },
+        {
+          "model": "kmeans_users",
+          "training_percent": 60,
+          "training_rows": 27427,
+          "inertia": 720031.9748052824,
+          "validation_silhouette": null
+        },
+        {
+          "model": "kmeans_users",
+          "training_percent": 80,
+          "training_rows": 36570,
+          "inertia": 958586.7961602993,
+          "validation_silhouette": null
+        },
+        {
+          "model": "kmeans_users",
+          "training_percent": 100,
+          "training_rows": 45713,
+          "inertia": 1237932.484260107,
+          "validation_silhouette": 0.36793266680619957
+        }
+      ],
+      "user_clustering": {
+        "source": "Food.com interactions only",
+        "users": 57142,
+        "selected_k": 2,
+        "selection": [
+          {
+            "k": 2,
+            "inertia": 174661.72818277474,
+            "silhouette": 0.9693009095842194
+          },
+          {
+            "k": 3,
+            "inertia": 165425.6677520369,
+            "silhouette": 0.3422051012139144
+          },
+          {
+            "k": 4,
+            "inertia": 147029.917824344,
+            "silhouette": 0.44380574090728786
+          },
+          {
+            "k": 5,
+            "inertia": 136025.02962480948,
+            "silhouette": 0.6632602596453974
+          },
+          {
+            "k": 6,
+            "inertia": 127556.1946120841,
+            "silhouette": 0.3689025216000561
+          },
+          {
+            "k": 7,
+            "inertia": 117687.12946112061,
+            "silhouette": 0.5113804914621152
+          },
+          {
+            "k": 8,
+            "inertia": 110384.40157056352,
+            "silhouette": 0.5635165460506454
+          }
+        ],
+        "clusters": [
+          {
+            "cluster": 0,
+            "users": 13645,
+            "avg_rating": 4.531383833889331,
+            "avg_interactions": 1.1586661780872114,
+            "avg_category_diversity": 1.0473433492121655,
+            "top_categories": [
+              "60-minutes-or-less",
+              "time-to-make",
+              "30-minutes-or-less",
+              "15-minutes-or-less",
+              "weeknight"
+            ]
+          },
+          {
+            "cluster": 1,
+            "users": 43497,
+            "avg_rating": 4.541526625651211,
+            "avg_interactions": 4.680391751155252,
+            "avg_category_diversity": 1.510862818125388,
+            "top_categories": [
+              "time-to-make",
+              "30-minutes-or-less",
+              "15-minutes-or-less",
+              "weeknight",
+              "course"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "comparison": [
+    {
+      "model": "TF-IDF + cosine",
+      "primary_metric": "Recall@10",
+      "value": 0.001755926251097454,
+      "interpretation": "Share of held-out positive-rated recipes appearing in the top ten."
+    },
+    {
+      "model": "Random Forest regression",
+      "primary_metric": "MAE on log1p target",
+      "value": 0.2611463703450911,
+      "interpretation": "Error for future interaction count on log1p scale; lower is better."
+    },
+    {
+      "model": "K-Means",
+      "primary_metric": "Silhouette score",
+      "value": 0.272903208195955,
+      "interpretation": "Cluster separation/cohesion on the recipe feature representation; higher is better."
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "contractName": "RecipeRegistry",
+  "sourceName": "RecipeRegistry.sol",
+  "compilerVersion": "0.8.36+commit.8a079791.Emscripten.clang",
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode.object",
+          "evm.deployedBytecode.object"
+        ]
+      }
+    }
+  },
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "DuplicateContentHash",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidContentHash",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidRecipeId",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        }
+      ],
+      "name": "NotRecipeCreator",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "RecipeAlreadyRegistered",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "RecipeNotRegistered",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint32",
+          "name": "version",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "contentHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "creatorWallet",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "timestamp",
+          "type": "uint64"
+        }
+      ],
+      "name": "RecipeRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint32",
+          "name": "version",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "contentHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "creatorWallet",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "timestamp",
+          "type": "uint64"
+        }
+      ],
+      "name": "RecipeVersionUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getRecipe",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "creatorWallet",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "currentVersion",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint32",
+          "name": "version",
+          "type": "uint32"
+        }
+      ],
+      "name": "getVersion",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "contentHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint64",
+          "name": "registeredAt",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "contentHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "registerRecipe",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "contentHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "registerRecipeVersion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "recipeId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint32",
+          "name": "version",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "expectedHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "verifyRecipe",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f5ffd5b5061066c8061001c5f395ff3fe608060405234801561000f575f5ffd5b5060043610610055575f3560e01c80630812f571146100595780633c7f48da146100815780638512b7d114610096578063b347d0d9146100a9578063f8d12a4114610139575b5f5ffd5b61006c610067366004610574565b6101a8565b60405190151581526020015b60405180910390f35b61009461008f3660046105a7565b61020e565b005b6100946100a43660046105a7565b61039b565b6101136100b73660046105c7565b5f91825260016020818152604080852063ffffffff9490941685529281529282902082516060810184528154808252919092015467ffffffffffffffff8116948301859052600160401b900460ff161515919092018190529092565b6040805193845267ffffffffffffffff9092166020840152151590820152606001610078565b6101846101473660046105f1565b5f90815260208181526040918290208251808401909352546001600160a01b038116808452600160a01b90910463ffffffff169290910182905291565b604080516001600160a01b03909316835263ffffffff909116602083015201610078565b5f83815260016020818152604080842063ffffffff87168552825280842081516060810183528154815293015467ffffffffffffffff811692840192909252600160401b90910460ff161580159183018290526102055750805183145b95945050505050565b815f0361022e57604051633af02c3560e01b815260040160405180910390fd5b8061024c576040516368e1d61b60e01b815260040160405180910390fd5b5f828152602081905260409020546001600160a01b031615610289576040516317a9ec6560e31b8152600481018390526024015b60405180910390fd5b60408051808201825233808252600160208084018281525f88815280835286812095518654925163ffffffff16600160a01b026001600160c01b03199093166001600160a01b03919091161791909117909455845160608101865286815267ffffffffffffffff428181168385019081528389018681528b8952868652898920878a5290955296889020925183559551918401805493511515600160401b0268ffffffffffffffffff19909416929091169190911791909117905592519192909185907fc15b6f160b189d4fdd18530b618260a724f499c161dcdd085edf9cf95af2a82b9061038e908790879091825267ffffffffffffffff16602082015260400190565b60405180910390a4505050565b5f82815260208190526040902080546001600160a01b03166103d357604051636b96683f60e01b815260048101849052602401610280565b80546001600160a01b031633146104065760405163132688db60e11b815260048101849052336024820152604401610280565b81610424576040516368e1d61b60e01b815260040160405180910390fd5b5f8381526001602090815260408083208454600160a01b900463ffffffff16845290915290205482900361046e576040516308e7028760e01b815260048101849052602401610280565b80545f9061048a90600160a01b900463ffffffff166001610608565b825463ffffffff60a01b1916600160a01b63ffffffff8316908102919091178455604080516060810182528681524267ffffffffffffffff818116602080850182815260018688018181525f8f81528285528981208b825285528990209751885591519601805491519690941668ffffffffffffffffff1990911617600160401b951515959095029490941790915583518981529283015293945033929188917f94a297e607fedca9efd24fcd03d319f710d976e427f1e0a7ad4540bfed9b6d0a910160405180910390a45050505050565b803563ffffffff8116811461056f575f5ffd5b919050565b5f5f5f60608486031215610586575f5ffd5b833592506105966020850161055c565b929592945050506040919091013590565b5f5f604083850312156105b8575f5ffd5b50508035926020909101359150565b5f5f604083850312156105d8575f5ffd5b823591506105e86020840161055c565b90509250929050565b5f60208284031215610601575f5ffd5b5035919050565b63ffffffff818116838216019081111561063057634e487b7160e01b5f52601160045260245ffd5b9291505056fea2646970667358221220eb0fe1fdcb9100f05cc2dcece30233f9b8e84d55f2932502a2b3bb321b8cdc1d64736f6c63430008240033",
+  "deployedBytecode": "0x608060405234801561000f575f5ffd5b5060043610610055575f3560e01c80630812f571146100595780633c7f48da146100815780638512b7d114610096578063b347d0d9146100a9578063f8d12a4114610139575b5f5ffd5b61006c610067366004610574565b6101a8565b60405190151581526020015b60405180910390f35b61009461008f3660046105a7565b61020e565b005b6100946100a43660046105a7565b61039b565b6101136100b73660046105c7565b5f91825260016020818152604080852063ffffffff9490941685529281529282902082516060810184528154808252919092015467ffffffffffffffff8116948301859052600160401b900460ff161515919092018190529092565b6040805193845267ffffffffffffffff9092166020840152151590820152606001610078565b6101846101473660046105f1565b5f90815260208181526040918290208251808401909352546001600160a01b038116808452600160a01b90910463ffffffff169290910182905291565b604080516001600160a01b03909316835263ffffffff909116602083015201610078565b5f83815260016020818152604080842063ffffffff87168552825280842081516060810183528154815293015467ffffffffffffffff811692840192909252600160401b90910460ff161580159183018290526102055750805183145b95945050505050565b815f0361022e57604051633af02c3560e01b815260040160405180910390fd5b8061024c576040516368e1d61b60e01b815260040160405180910390fd5b5f828152602081905260409020546001600160a01b031615610289576040516317a9ec6560e31b8152600481018390526024015b60405180910390fd5b60408051808201825233808252600160208084018281525f88815280835286812095518654925163ffffffff16600160a01b026001600160c01b03199093166001600160a01b03919091161791909117909455845160608101865286815267ffffffffffffffff428181168385019081528389018681528b8952868652898920878a5290955296889020925183559551918401805493511515600160401b0268ffffffffffffffffff19909416929091169190911791909117905592519192909185907fc15b6f160b189d4fdd18530b618260a724f499c161dcdd085edf9cf95af2a82b9061038e908790879091825267ffffffffffffffff16602082015260400190565b60405180910390a4505050565b5f82815260208190526040902080546001600160a01b03166103d357604051636b96683f60e01b815260048101849052602401610280565b80546001600160a01b031633146104065760405163132688db60e11b815260048101849052336024820152604401610280565b81610424576040516368e1d61b60e01b815260040160405180910390fd5b5f8381526001602090815260408083208454600160a01b900463ffffffff16845290915290205482900361046e576040516308e7028760e01b815260048101849052602401610280565b80545f9061048a90600160a01b900463ffffffff166001610608565b825463ffffffff60a01b1916600160a01b63ffffffff8316908102919091178455604080516060810182528681524267ffffffffffffffff818116602080850182815260018688018181525f8f81528285528981208b825285528990209751885591519601805491519690941668ffffffffffffffffff1990911617600160401b951515959095029490941790915583518981529283015293945033929188917f94a297e607fedca9efd24fcd03d319f710d976e427f1e0a7ad4540bfed9b6d0a910160405180910390a45050505050565b803563ffffffff8116811461056f575f5ffd5b919050565b5f5f5f60608486031215610586575f5ffd5b833592506105966020850161055c565b929592945050506040919091013590565b5f5f604083850312156105b8575f5ffd5b50508035926020909101359150565b5f5f604083850312156105d8575f5ffd5b823591506105e86020840161055c565b90509250929050565b5f60208284031215610601575f5ffd5b5035919050565b63ffffffff818116838216019081111561063057634e487b7160e01b5f52601160045260245ffd5b9291505056fea2646970667358221220eb0fe1fdcb9100f05cc2dcece30233f9b8e84d55f2932502a2b3bb321b8cdc1d64736f6c63430008240033"
+}

@@ -1,0 +1,28 @@
+node_modules/
+backend/uploads/recipes/
+.env
+.env.local
+.env.*.local
+# Nested environment files (backend/.env, frontend/.env, security-portal/.env).
+# The committed `.env.example` files are intentionally kept.
+**/.env
+**/.env.local
+**/.env.*.local
+*.log
+.DS_Store
+
+# Python caches from the ml/ and governance/ pipelines
+__pycache__/
+*.pyc
+.venv/
+.uv-cache-task/
+.uv-python-task/
+ai/datasets/processed/*
+# Raw source datasets are large (100 MB+) and exceed GitHub's per-file limit.
+ai/datasets/raw/
+ai/models/
+ai/.anon_key
+ai/.venv/
+ai/reports/evaluation/user_cluster_assignments.csv
+frontend/dist/
+security-portal/dist/

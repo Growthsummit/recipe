@@ -1,0 +1,272 @@
+{
+  "model": "KMeans",
+  "feature_sources": [
+    "TF-IDF recipe ingredients",
+    "scaled cooking time",
+    "scaled ingredient count",
+    "scaled step count"
+  ],
+  "recipes": 83897,
+  "selected_k": 3,
+  "selection_rule": "highest silhouette among k=2..8 on a fixed reproducible sample; elbow inertias also saved",
+  "selection_sample_size": 8000,
+  "selection": [
+    {
+      "k": 2,
+      "inertia": 24001.448760631378,
+      "silhouette": 0.21826723283379526
+    },
+    {
+      "k": 3,
+      "inertia": 18467.879313947447,
+      "silhouette": 0.26413559069138626
+    },
+    {
+      "k": 4,
+      "inertia": 16242.70085846513,
+      "silhouette": 0.20285076739208488
+    },
+    {
+      "k": 5,
+      "inertia": 14810.791520011433,
+      "silhouette": 0.21983703720784348
+    },
+    {
+      "k": 6,
+      "inertia": 13627.09829278578,
+      "silhouette": 0.22493250486517288
+    },
+    {
+      "k": 7,
+      "inertia": 12604.627635500212,
+      "silhouette": 0.22210506373723243
+    },
+    {
+      "k": 8,
+      "inertia": 11894.171642732896,
+      "silhouette": 0.22228265636998562
+    }
+  ],
+  "silhouette_sample": 0.272903208195955,
+  "clusters": [
+    {
+      "cluster": 0,
+      "recipes": 30252,
+      "avg_minutes": 63.216382387941294,
+      "avg_ingredients": 12.62141346026709,
+      "top_categories": [
+        "60-minutes-or-less",
+        "time-to-make",
+        "30-minutes-or-less",
+        "weeknight",
+        "15-minutes-or-less"
+      ],
+      "top_ingredients": [
+        "salt",
+        "butter",
+        "onion",
+        "garlic cloves",
+        "olive oil",
+        "sugar",
+        "eggs",
+        "water",
+        "all-purpose flour",
+        "flour"
+      ]
+    },
+    {
+      "cluster": 1,
+      "recipes": 4204,
+      "avg_minutes": 1434.9229305423407,
+      "avg_ingredients": 9.705280685061846,
+      "top_categories": [
+        "course",
+        "time-to-make",
+        "weeknight",
+        "main-ingredient",
+        "preparation"
+      ],
+      "top_ingredients": [
+        "salt",
+        "onion",
+        "water",
+        "garlic cloves",
+        "sugar",
+        "pepper",
+        "olive oil",
+        "brown sugar",
+        "butter",
+        "black pepper"
+      ]
+    },
+    {
+      "cluster": 2,
+      "recipes": 49441,
+      "avg_minutes": 34.32790598895654,
+      "avg_ingredients": 7.0842418235877105,
+      "top_categories": [
+        "15-minutes-or-less",
+        "30-minutes-or-less",
+        "60-minutes-or-less",
+        "time-to-make",
+        "weeknight"
+      ],
+      "top_ingredients": [
+        "salt",
+        "butter",
+        "sugar",
+        "olive oil",
+        "water",
+        "onion",
+        "eggs",
+        "milk",
+        "garlic cloves",
+        "pepper"
+      ]
+    }
+  ],
+  "saturation": [
+    {
+      "model": "kmeans",
+      "training_percent": 20,
+      "training_rows": 13423,
+      "inertia": 31761.16256986568,
+      "validation_silhouette": 0.27130854790831915
+    },
+    {
+      "model": "kmeans",
+      "training_percent": 40,
+      "training_rows": 26846,
+      "inertia": 63563.113861618556,
+      "validation_silhouette": 0.2665842581235842
+    },
+    {
+      "model": "kmeans",
+      "training_percent": 60,
+      "training_rows": 40270,
+      "inertia": 95463.43042348076,
+      "validation_silhouette": 0.27480917720789255
+    },
+    {
+      "model": "kmeans",
+      "training_percent": 80,
+      "training_rows": 53693,
+      "inertia": 127456.45833586063,
+      "validation_silhouette": 0.2692141023892909
+    },
+    {
+      "model": "kmeans",
+      "training_percent": 100,
+      "training_rows": 67117,
+      "inertia": 158493.67093778122,
+      "validation_silhouette": 0.26842361837401624
+    },
+    {
+      "model": "kmeans_users",
+      "training_percent": 20,
+      "training_rows": 9142,
+      "inertia": 192585.14758777423,
+      "validation_silhouette": null
+    },
+    {
+      "model": "kmeans_users",
+      "training_percent": 40,
+      "training_rows": 18285,
+      "inertia": 483992.297889119,
+      "validation_silhouette": null
+    },
+    {
+      "model": "kmeans_users",
+      "training_percent": 60,
+      "training_rows": 27427,
+      "inertia": 720031.9748052824,
+      "validation_silhouette": null
+    },
+    {
+      "model": "kmeans_users",
+      "training_percent": 80,
+      "training_rows": 36570,
+      "inertia": 958586.7961602993,
+      "validation_silhouette": null
+    },
+    {
+      "model": "kmeans_users",
+      "training_percent": 100,
+      "training_rows": 45713,
+      "inertia": 1237932.484260107,
+      "validation_silhouette": 0.36793266680619957
+    }
+  ],
+  "user_clustering": {
+    "source": "Food.com interactions only",
+    "users": 57142,
+    "selected_k": 2,
+    "selection": [
+      {
+        "k": 2,
+        "inertia": 174661.72818277474,
+        "silhouette": 0.9693009095842194
+      },
+      {
+        "k": 3,
+        "inertia": 165425.6677520369,
+        "silhouette": 0.3422051012139144
+      },
+      {
+        "k": 4,
+        "inertia": 147029.917824344,
+        "silhouette": 0.44380574090728786
+      },
+      {
+        "k": 5,
+        "inertia": 136025.02962480948,
+        "silhouette": 0.6632602596453974
+      },
+      {
+        "k": 6,
+        "inertia": 127556.1946120841,
+        "silhouette": 0.3689025216000561
+      },
+      {
+        "k": 7,
+        "inertia": 117687.12946112061,
+        "silhouette": 0.5113804914621152
+      },
+      {
+        "k": 8,
+        "inertia": 110384.40157056352,
+        "silhouette": 0.5635165460506454
+      }
+    ],
+    "clusters": [
+      {
+        "cluster": 0,
+        "users": 13645,
+        "avg_rating": 4.531383833889331,
+        "avg_interactions": 1.1586661780872114,
+        "avg_category_diversity": 1.0473433492121655,
+        "top_categories": [
+          "60-minutes-or-less",
+          "time-to-make",
+          "30-minutes-or-less",
+          "15-minutes-or-less",
+          "weeknight"
+        ]
+      },
+      {
+        "cluster": 1,
+        "users": 43497,
+        "avg_rating": 4.541526625651211,
+        "avg_interactions": 4.680391751155252,
+        "avg_category_diversity": 1.510862818125388,
+        "top_categories": [
+          "time-to-make",
+          "30-minutes-or-less",
+          "15-minutes-or-less",
+          "weeknight",
+          "course"
+        ]
+      }
+    ]
+  }
+}

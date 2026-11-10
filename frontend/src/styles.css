@@ -1,0 +1,344 @@
+:root {
+  --bg: #f8f1e7;
+  --brown: #5a3825;
+  --text: #2e211b;
+  --muted: #806f63;
+  --card: #fffdfc;
+  --border: #e4d7c9;
+  --tile: #e8d8c8;
+  --photo: #c48a5a;
+  --icon: #1d1b20;
+}
+
+:root[data-theme='dark'] {
+  --bg: #171411;
+  --brown: #e5bc92;
+  --text: #f4ece5;
+  --muted: #c0b2a6;
+  --card: #26211d;
+  --border: #4a3e35;
+  --tile: #3b3028;
+  --photo: #876344;
+  --icon: #f4ece5;
+}
+:root[data-theme='dark'] .search-input,
+:root[data-theme='dark'] .search-input::placeholder,
+:root[data-theme='dark'] .tile { color: var(--text); }
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; height: 100%; background: var(--bg); }
+body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: inherit; }
+input { font: inherit; }
+p, h1, h2 { margin: 0; }
+
+/* ---- 393 x 852 mobile composition (kept on wider screens) ---- */
+.app { position: relative; width: 393px; max-width: 100%; height: min(100dvh, 852px); margin: 0 auto; background: var(--bg); overflow: hidden; }
+.screen { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+.screen::-webkit-scrollbar { display: none; }
+.screen > .canvas { min-height: calc(100% + 120px); padding-bottom: max(130px, calc(110px + env(safe-area-inset-bottom))) !important; }
+/* `flow-root` keeps child margins from collapsing out of the canvas, which
+   previously pushed the whole screen down and left absolutely-positioned
+   controls (e.g. the auth back button) sitting below the page title. */
+.canvas { position: relative; width: 393px; max-width: 100%; display: flow-root; }
+.abs { position: absolute; }
+
+.h-brand { position: absolute; left: 33px; top: 64px; font-size: 24px; font-weight: 700; color: var(--brown); white-space: nowrap; }
+.h-title { font-size: 24px; font-weight: 700; color: var(--brown); white-space: nowrap; }
+.h-section { font-size: 20px; font-weight: 700; color: var(--brown); text-align: center; white-space: nowrap; }
+.t-welcome { position: absolute; left: 0; right: 0; top: 119px; text-align: center; font-size: 16px; font-weight: 500; color: var(--muted); }
+.t-sub { position: absolute; left: 0; right: 0; top: 144px; text-align: center; font-size: 14px; font-weight: 400; color: var(--muted); }
+
+/* ---- search fields ---- */
+.search-input { position: absolute; width: 270px; height: 48px; background: var(--card); border: 1px solid rgba(228, 215, 201, 0.2); border-radius: 12px; font-size: 14px; font-weight: 400; color: #000; text-align: center; outline: none; padding: 0 12px; }
+.search-input::placeholder { color: #000; opacity: 1; }
+.search-input:focus-visible { border-color: var(--border); }
+.search-icon { position: absolute; width: 32px; height: 33px; color: var(--icon); }
+
+/* ---- recipe card (327 x 210) ---- */
+.rcard { position: relative; width: 327px; height: 210px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; flex: none; }
+.rcard--small { width: 166px; }
+.rcard__open { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.photo { position: absolute; left: -1px; top: -1px; width: 327px; height: 125px; border-radius: 16px; background: var(--photo); overflow: hidden; }
+.rcard--small .photo { width: 163px; height: 105px; }
+.photo img { width: 100%; height: 100%; object-fit: cover; opacity: 1; display: block; }
+.rcard__title { position: absolute; left: 15px; top: 139px; font-size: 16px; font-weight: 600; color: var(--text); white-space: nowrap; }
+.rcard--small .rcard__title { left: 7px; }
+.rcard__star { position: absolute; left: 15px; top: 166px; width: 24px; height: 24px; color: var(--icon); }
+.rcard__rating { position: absolute; left: 46px; top: 172px; font-size: 15px; font-weight: 600; color: var(--muted); }
+.rcard__time { position: absolute; left: 101px; top: 172px; font-size: 15px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.rcard--small .rcard__star { left: 12px; }
+.rcard--small .rcard__rating { left: 43px; }
+.rcard__difficulty { position: absolute; left: 212px; top: 172px; font-size: 15px; font-weight: 600; color: var(--muted); }
+.card-stack { display: flex; flex-direction: column; gap: 47px; margin-left: 33px; }
+.card-wrap { position: relative; }
+.card-wrap .heart { top: -42px; left: 303px; }
+
+/* ---- favourite heart ---- */
+.heart { position: absolute; width: 35px; height: 35px; border-radius: 50%; background: var(--card); border: 1px solid var(--border); color: var(--brown); font-size: 24px; line-height: 1; display: flex; align-items: center; justify-content: center; padding-bottom: 3px; z-index: 2; }
+.heart--saved { font-size: 17px; padding-bottom: 0; }
+.circle-btn { position: absolute; width: 40px; height: 40px; border-radius: 50%; background: var(--card); border: 1px solid var(--border); color: var(--brown); display: flex; align-items: center; justify-content: center; z-index: 3; }
+
+/* ---- category buttons (Home) ---- */
+.cat-grid { display: grid; grid-template-columns: 145px 145px; column-gap: 21px; row-gap: 29px; justify-content: center; margin-top: 27px; }
+.cat-btn { height: 50px; border-radius: 12px; background: var(--tile); color: var(--brown); font-size: 14px; font-weight: 500; text-align: center; }
+/* ---- category tiles (Search) ---- */
+.tile-grid { position: absolute; top: 292px; left: 32px; display: grid; grid-template-columns: 155px 155px; column-gap: 24px; row-gap: 28px; }
+.tile { height: 75px; border-radius: 14px; background: var(--tile); color: #000; font-size: 20px; font-weight: 700; text-align: center; }
+
+.trend-grid { position: absolute; top: 542px; left: 20px; display: grid; grid-template-columns: 166px 166px; column-gap: 16px; }
+
+/* ---- bottom navigation ---- */
+.nav { position: absolute; left: 33px; bottom: 21px; width: 327px; height: 70px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; z-index: 10; }
+.nav__item { position: absolute; top: 23px; font-size: 12px; font-weight: 600; color: var(--muted); white-space: nowrap; line-height: normal; }
+.nav__item--active { color: var(--brown); }
+
+/* ---- favourites list ---- */
+.fav-card { position: relative; width: 327px; height: 110px; background: var(--card); border-radius: 16px; margin-left: 22px; margin-bottom: 16px; }
+.fav-card .photo { left: 18px; top: 16px; width: 90px; height: 78px; border-radius: 12px; }
+.fav-card__title { position: absolute; left: 146px; top: 27px; font-size: 15px; font-weight: 600; color: var(--text); white-space: nowrap; }
+.fav-card__star { position: absolute; left: 142px; top: 57px; width: 24px; height: 24px; color: var(--icon); }
+.fav-card__rating { position: absolute; left: 175px; top: 65px; font-size: 15px; font-weight: 600; color: var(--muted); }
+.fav-card__time { position: absolute; left: 233px; top: 65px; font-size: 15px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.fav-heart { position: absolute; left: 338px; top: 7px; font-size: 15px; line-height: 1; z-index: 2; }
+
+/* ---- profile ---- */
+.avatar { position: absolute; left: 20px; top: 141px; width: 80px; height: 80px; border-radius: 50%; background: var(--brown); color: var(--card); display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 600; }
+.p-name { position: absolute; left: 113px; top: 149px; font-size: 20px; font-weight: 700; color: var(--text); }
+.p-welcome { position: absolute; left: 113px; top: 181px; font-size: 13px; font-weight: 400; color: var(--muted); }
+.p-heading { position: absolute; left: 20px; top: 266px; font-size: 20px; font-weight: 700; color: var(--brown); }
+.p-row { position: absolute; left: 20px; width: 327px; height: 52px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; font-size: 14px; font-weight: 500; color: var(--text); }
+.p-row__emoji { position: absolute; left: 15px; top: 16px; font-size: 15px; line-height: 1; }
+.p-row__label { position: absolute; left: 48px; top: 16px; line-height: normal; }
+.p-empty { position: absolute; left: 63px; top: 392px; font-size: 20px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.p-about { position: absolute; left: 19px; top: 314px; width: 342px; height: 112px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.p-about__emoji { position: absolute; left: 15px; top: 16px; font-size: 15px; line-height: 1; }
+.p-about__text { position: absolute; left: 48px; top: 15px; width: 285px; font-size: 14px; font-weight: 500; color: var(--text); line-height: normal; }
+.back-lt { position: absolute; left: 30px; top: 9px; font-size: 24px; line-height: normal; color: var(--brown); }
+
+/* ---- recipe details ---- */
+.d-card { position: absolute; left: 33px; top: 71px; }
+.d-text { padding: 0 16px; font-size: 14px; font-weight: 700; color: var(--text); line-height: normal; }
+.d-list { margin: 0; padding: 0; list-style: none; }
+.d-list--disc { list-style: disc; padding-left: 21px; }
+.d-gap { height: 17px; }
+.d-heading { font-size: 20px; font-weight: 700; color: var(--brown); text-align: center; line-height: normal; }
+
+/* ---------------------------------------------------------------------------
+   Additions for the backend-backed features (auth, recipe CRUD, ratings and
+   reviews). They reuse the existing design tokens so the visual language of the
+   Figma screens is unchanged.
+   --------------------------------------------------------------------------- */
+
+/* ---- loading / empty / error messages ---- */
+.status { margin: 0 33px 20px; font-size: 14px; font-weight: 500; color: var(--muted); text-align: center; }
+.status--error { color: #a33a2a; }
+
+/* ---- cards used by auth, profile editing and recipe forms ---- */
+.auth-card,
+.form-card { position: relative; width: min(327px, calc(100% - 40px)); margin-left: auto; margin-right: auto; padding: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; display: flex; flex-direction: column; gap: 14px; }
+.form-page { padding-top: 50px; }
+.form-page__heading { width: min(353px, calc(100% - 40px)); margin: 0 auto; }
+.form-page__heading p { margin-top: 8px; font-size: 14px; color: var(--muted); }
+.form-page .screen-form,
+.form-page .recipe-form { margin-top: 24px; margin-bottom: 36px; }
+.form-page--auth { padding-top: 0; }
+.profile-edit-form { margin-top: 250px; margin-bottom: 36px; }
+.auth-card h2 { font-size: 16px; font-weight: 700; color: var(--brown); }
+.auth-card p { font-size: 13px; color: var(--muted); line-height: normal; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field > span { font-size: 12px; font-weight: 600; color: var(--muted); }
+.field input,
+.field textarea,
+.field select { width: 100%; padding: 10px 12px; font-size: 14px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; outline: none; }
+.field textarea { resize: vertical; font-family: inherit; line-height: 1.4; }
+.field input:focus-visible,
+.field textarea:focus-visible,
+.field select:focus-visible { border-color: var(--brown); }
+.field-row { display: flex; gap: 12px; }
+.field-row .field { flex: 1; min-width: 0; }
+.field-hint { font-size: 12px; color: var(--muted); }
+
+/* ---- buttons ---- */
+.btn-primary { height: 46px; padding: 0 20px; border-radius: 12px; background: var(--brown); color: var(--card); font-size: 14px; font-weight: 600; text-align: center; }
+.btn-primary:disabled { opacity: 0.6; }
+.btn-block { width: 100%; }
+.btn-secondary { height: 40px; padding: 0 16px; border-radius: 12px; background: var(--tile); color: var(--brown); font-size: 13px; font-weight: 600; text-align: center; }
+.btn-secondary:disabled { opacity: 0.6; }
+.btn-link { font-size: 13px; font-weight: 600; color: var(--brown); text-align: center; text-decoration: underline; }
+.btn-primary,
+.btn-secondary { align-self: flex-start; }
+.btn-block { align-self: stretch; }
+
+.form-error { font-size: 13px; font-weight: 600; color: #a33a2a; }
+.form-ok { font-size: 13px; font-weight: 600; color: #3f6b3f; }
+.recipe-image-options { min-width: 0; margin: 0; padding: 14px; display: grid; gap: 12px; border: 1px solid var(--border); border-radius: 12px; }
+.recipe-image-options legend { padding: 0 5px; color: var(--brown); font-size: 14px; font-weight: 700; }
+.recipe-image-options > .field-hint { margin: -6px 0 0; }
+.recipe-image-file input { width: 100%; padding: 9px; border: 1px dashed var(--border); border-radius: 10px; background: var(--bg); font-size: 11px; }
+.recipe-image-preview { width: 100%; height: 164px; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--tile); }
+.recipe-image-preview img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+/* ---- profile additions ---- */
+.p-row--accent .p-row__label,
+.p-row--accent .p-row__emoji { color: var(--brown); font-weight: 600; }
+.p-row--danger .p-row__label,
+.p-row--danger .p-row__emoji { color: #a33a2a; }
+.p-note { position: absolute; left: 20px; width: 327px; font-size: 13px; color: var(--muted); }
+.p-note--error { color: #a33a2a; }
+.auth-heading { margin: 78px 20px 0; }
+.auth-heading p { margin-top: 8px; font-size: 14px; color: var(--muted); }
+.theme-choice { position: absolute; top: 10px; right: 10px; display: flex; gap: 4px; padding: 3px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
+.theme-choice button { padding: 5px 8px; border-radius: 7px; color: var(--muted); font-size: 11px; }
+.theme-choice button[aria-pressed='true'] { background: var(--tile); color: var(--text); font-weight: 700; }
+.storage-summary { position: absolute; left: 20px; width: 327px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.storage-summary strong { color: var(--text); }
+.storage-alert { position: absolute; z-index: 20; top: 10px; left: 18px; width: 357px; max-width: calc(100% - 36px); padding: 12px 42px 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); color: var(--text); box-shadow: 0 5px 18px rgba(0,0,0,.18); font-size: 13px; line-height: 1.4; }
+.storage-alert button { position: absolute; top: 7px; right: 11px; color: var(--muted); font-size: 22px; }
+.privacy-panel { position: relative; margin: 660px 20px 40px; width: 327px; padding: 16px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); color: var(--text); }
+.privacy-panel h3 { color: var(--brown); font-size: 16px; }
+.privacy-panel p { color: var(--muted); font-size: 12px; line-height: 1.45; }
+.privacy-panel label { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.privacy-actions { display: flex; justify-content: space-between; gap: 8px; }
+.privacy-actions .btn-secondary { align-self: center; padding: 0 10px; }
+.privacy-delete { color: #a33a2a; }
+
+/* ---- my recipes ---- */
+.myrecipe-actions { position: absolute; left: 146px; top: 76px; display: flex; gap: 8px; z-index: 2; }
+.packet { padding: 4px 12px; border-radius: 10px; background: var(--tile); color: var(--brown); font-size: 12px; font-weight: 600; }
+.packet--danger { color: #a33a2a; }
+
+/* ---- ratings & reviews ---- */
+.rate-stars { display: flex; gap: 6px; }
+.rate-star { font-size: 26px; line-height: 1; color: var(--border); }
+.rate-star.is-on { color: var(--brown); }
+.rate-star:disabled { opacity: 0.6; }
+
+.d-note { font-size: 13px; font-weight: 500; color: var(--muted); }
+.d-note--error { color: #a33a2a; }
+
+.review-form { width: min(327px, 100%); display: flex; flex-direction: column; gap: 10px; margin: 0 auto 14px; }
+.review-input { width: 100%; padding: 10px 12px; font-size: 14px; font-weight: 400; color: var(--text); background: var(--card); border: 1px solid var(--border); border-radius: 10px; outline: none; resize: vertical; font-family: inherit; }
+.review { position: relative; padding: 12px 0; border-top: 1px solid var(--border); }
+.review__head { font-size: 14px; font-weight: 700; color: var(--brown); }
+.review__body { font-size: 14px; font-weight: 400; color: var(--text); line-height: normal; }
+.review__delete { margin-top: 6px; font-size: 12px; font-weight: 600; color: #a33a2a; text-decoration: underline; }
+
+/* ---- Ethereum recipe integrity proof ---- */
+.blockchain-card { width: 327px; margin: 28px 20px 24px; padding: 16px; display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); color: var(--text); }
+.blockchain-card h2 { font-size: 18px; font-weight: 700; color: var(--brown); }
+.blockchain-card h3 { margin-top: 8px; font-size: 15px; color: var(--brown); }
+.blockchain-card p { font-size: 12px; line-height: 1.45; color: var(--muted); }
+.blockchain-card strong { color: var(--text); }
+.blockchain-address { overflow-wrap: anywhere; }
+.blockchain-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.blockchain-actions .btn-primary,
+.blockchain-actions .btn-secondary { height: auto; min-height: 40px; padding: 8px 12px; white-space: normal; }
+.blockchain-versions article { padding: 10px 0; border-top: 1px solid var(--border); }
+.blockchain-versions a { color: var(--brown); font-weight: 600; text-decoration: underline; overflow-wrap: anywhere; }
+.blockchain-footnote { font-style: italic; }
+.blockchain-dashboard { position: absolute; top: 314px; left: 20px; width: 327px; padding: 16px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); color: var(--text); }
+.blockchain-dashboard p { font-size: 12px; line-height: 1.45; color: var(--muted); }
+.blockchain-dashboard strong { color: var(--text); }
+.blockchain-dashboard h3 { margin-top: 4px; color: var(--brown); font-size: 15px; }
+.blockchain-dashboard__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.blockchain-dashboard__stats span { padding: 10px; display: flex; flex-direction: column; gap: 4px; border-radius: 10px; background: var(--bg); color: var(--muted); font-size: 11px; }
+.blockchain-dashboard__stats strong { font-size: 18px; }
+.blockchain-dashboard article { padding: 10px 0; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--border); }
+.blockchain-dashboard a { color: var(--brown); font-size: 12px; font-weight: 600; text-decoration: underline; overflow-wrap: anywhere; }
+.blockchain-dashboard article .btn-secondary { align-self: flex-start; }
+
+.ai-section { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line, #e9e1d8); }
+.recipe-admin-edit { margin: 0 0 14px; padding: 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 9px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); }
+.recipe-admin-edit p { color: var(--muted); font-size: 12px; }
+.ai-section > .d-note { line-height: 1.5; }
+.ai-recommendation-list { display: grid; gap: 9px; margin-top: 12px; }
+.ai-recommendation { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; border: 1px solid var(--line, #e9e1d8); border-radius: 12px; background: var(--card, #fff); }
+.ai-recommendation strong { font-size: 14px; }
+.ai-recommendation p { margin: 5px 0 0; color: var(--muted, #756d64); font-size: 12px; }
+@media (max-width: 560px) { .ai-recommendation { align-items: flex-start; flex-direction: column; } }
+
+/* ---- user-facing AI kitchen ---- */
+.ai-screen { overscroll-behavior-y: contain; }
+.ai-canvas { min-height: calc(100% + 150px) !important; padding: 34px 20px 160px !important; }
+.ai-heading { display: grid; gap: 8px; margin: 4px 0 20px; }
+.ai-heading .h-title { white-space: normal; font-size: 23px; }
+.ai-heading > p:last-child { color: var(--muted); font-size: 13px; line-height: 1.45; }
+.ai-tabs { display: flex; gap: 7px; margin: 0 -20px 16px; padding: 0 20px 6px; overflow-x: auto; scrollbar-width: none; }
+.ai-tabs::-webkit-scrollbar { display: none; }
+.ai-tabs button { flex: none; padding: 9px 11px; border: 1px solid var(--border); border-radius: 12px; color: var(--brown); background: var(--card); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.ai-tabs button.is-active { color: var(--card); background: var(--brown); border-color: var(--brown); }
+.ai-panel { padding: 17px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); }
+.ai-panel > h2 { margin: 0 0 7px; color: var(--brown); font-size: 19px; }
+.ai-panel > p { margin: 0 0 14px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.ai-form { display: grid; gap: 12px; margin: 15px 0; }
+.ai-form .field textarea { width: 100%; min-height: 82px; padding: 11px 12px; border: 1px solid var(--border); border-radius: 12px; color: var(--text); background: var(--bg); font: inherit; font-size: 13px; resize: vertical; }
+.ai-form .field textarea:focus-visible { border-color: var(--brown); outline: 2px solid color-mix(in srgb, var(--brown) 20%, transparent); }
+.ai-results { display: grid; gap: 8px; margin-top: 18px; }
+.ai-results h3 { margin: 0; color: var(--brown); font-size: 15px; }
+.ai-result { display: grid; width: 100%; gap: 5px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); color: var(--text); text-align: left; }
+.ai-result:hover { border-color: var(--photo); }
+.ai-result__title { color: var(--brown); font-size: 14px; font-weight: 700; }
+.ai-result__meta, .ai-result__hint { color: var(--muted); font-size: 11px; line-height: 1.4; }
+.ai-result__hint { color: var(--brown); font-weight: 600; }
+.ai-message { margin: 12px 0; padding: 11px 12px; border-radius: 10px; color: var(--muted); background: var(--bg); font-size: 12px; line-height: 1.5; }
+.ai-message--error { color: #a33a2a; background: #fff0ee; }
+.ai-data-note { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.ai-empty { display: grid; gap: 12px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.ai-empty .btn-primary { justify-self: start; }
+.ai-answer { display: grid; gap: 8px; margin-top: 16px; padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg); }
+.ai-answer__label { color: var(--photo); font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.ai-answer h3 { margin: 0; color: var(--brown); font-size: 16px; }
+.ai-answer h4 { margin: 6px 0 0; color: var(--brown); font-size: 12px; }
+.ai-answer__description, .ai-answer li { color: var(--text); font-size: 12px; line-height: 1.5; }
+.ai-answer ul, .ai-answer ol { margin: 0; padding-left: 19px; }
+.ai-answer .btn-secondary { margin-top: 5px; }
+@media (min-width: 560px) {
+  .ai-canvas { padding-right: 24px !important; padding-left: 24px !important; }
+  .ai-panel { padding: 20px; }
+}
+
+/* ---------------------------------------------------------------------------
+   Display -> "Enlarge text". `--app-text-scale` (set by AppContext) scales the
+   interface text without disturbing the fixed 393x852 composition. Long-form
+   panels (privacy notice, blockchain dashboard) keep their own size so their
+   measured heights stay stable.
+   --------------------------------------------------------------------------- */
+.text-scale { position: absolute; top: 11px; right: 12px; display: flex; align-items: center; gap: 8px; }
+.text-scale input[type='range'] { width: 126px; height: 22px; accent-color: var(--brown); }
+.text-scale__value { min-width: 36px; font-size: 11px; font-weight: 600; color: var(--muted); text-align: right; }
+
+.h-brand,
+.h-title { font-size: calc(24px * var(--app-text-scale, 1)); }
+.h-section,
+.p-heading,
+.p-name,
+.p-empty,
+.tile,
+.d-heading { font-size: calc(20px * var(--app-text-scale, 1)); }
+.t-welcome { font-size: calc(16px * var(--app-text-scale, 1)); }
+.t-sub { font-size: calc(14px * var(--app-text-scale, 1)); }
+.p-welcome { font-size: calc(13px * var(--app-text-scale, 1)); }
+.p-row { font-size: calc(14px * var(--app-text-scale, 1)); }
+.nav__item { font-size: calc(12px * var(--app-text-scale, 1)); }
+.rcard__title { font-size: calc(16px * var(--app-text-scale, 1)); }
+.fav-card__title { font-size: calc(15px * var(--app-text-scale, 1)); }
+.rcard__rating,
+.rcard__time,
+.rcard__difficulty,
+.fav-card__rating,
+.fav-card__time { font-size: calc(15px * var(--app-text-scale, 1)); }
+.cat-btn { font-size: calc(14px * var(--app-text-scale, 1)); }
+.btn-primary { font-size: calc(14px * var(--app-text-scale, 1)); }
+.btn-secondary { font-size: calc(13px * var(--app-text-scale, 1)); }
+.field > span { font-size: calc(12px * var(--app-text-scale, 1)); }
+.field input,
+.field textarea,
+.field select { font-size: calc(14px * var(--app-text-scale, 1)); }
+.d-text,
+.review__head,
+.review__body { font-size: calc(14px * var(--app-text-scale, 1)); }
+
+/* ---- App Settings: change password pane ---- */
+.security-form { margin-top: 130px; margin-bottom: 36px; }

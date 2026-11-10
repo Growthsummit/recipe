@@ -1,0 +1,614 @@
+[
+  {
+    "id": "creamy-garlic-pasta",
+    "title": "Creamy Garlic Pasta",
+    "rating": "4.8",
+    "time": "25 min",
+    "difficulty": "Easy",
+    "servings": "Serves 2",
+    "ingredientStyle": "circle",
+    "stepLabels": true,
+    "tags": [
+      "Pasta"
+    ],
+    "image": "/images/recipes/creamy-garlic-pasta.png",
+    "ingredients": [
+      "200 g pasta",
+      "3 cloves garlic",
+      "2 tbsp butter",
+      "½ cup cooking cream",
+      "¼ cup Parmesan cheese",
+      "Salt and black pepper"
+    ],
+    "steps": [
+      {
+        "title": "Cook the pasta",
+        "text": "Cook the pasta according to the package directions until tender. Drain and set aside."
+      },
+      {
+        "title": "Prepare the garlic",
+        "text": "Melt the butter in a pan and gently cook the minced garlic."
+      },
+      {
+        "title": "Make the sauce",
+        "text": "Add the cream and Parmesan cheese. Stir until the sauce becomes smooth."
+      },
+      {
+        "title": "Combine",
+        "text": "Add the cooked pasta and toss everything together. Season with salt and pepper."
+      },
+      {
+        "title": "Serve",
+        "text": "Serve warm and top with a little extra Parmesan if desired."
+      }
+    ]
+  },
+  {
+    "id": "veggie-spaghetti",
+    "title": "Veggie Spaghetti",
+    "rating": "4.8",
+    "detailRating": "4.7",
+    "time": "25 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Pasta"
+    ],
+    "image": "/images/recipes/veggie-spaghetti.png",
+    "ingredients": [
+      "200 g spaghetti",
+      "1 bell pepper",
+      "1 carrot",
+      "½ onion",
+      "1 cup tomato sauce",
+      "1 tbsp cooking oil",
+      "Salt and pepper",
+      "Parmesan cheese (optional)"
+    ],
+    "steps": [
+      {
+        "title": "Cook the spaghetti",
+        "text": "Boil the spaghetti until tender, then drain."
+      },
+      {
+        "title": "Cook the vegetables",
+        "text": "Heat oil in a pan and sauté the onion, carrot and bell pepper."
+      },
+      {
+        "title": "Add the sauce",
+        "text": "Add tomato sauce and season with salt and pepper. Simmer for a few minutes."
+      },
+      {
+        "title": "Combine",
+        "text": "Add the spaghetti and mix well. Top with Parmesan if desired."
+      }
+    ]
+  },
+  {
+    "id": "chicken-and-rice",
+    "title": "Chicken and Rice",
+    "rating": "4.7",
+    "time": "35 min",
+    "difficulty": "Easy",
+    "servings": "Serves 2",
+    "ingredientStyle": "disc",
+    "tags": [
+      "Chicken"
+    ],
+    "image": "/images/recipes/chicken-and-rice.png",
+    "ingredients": [
+      "1 cup rice",
+      "2 chicken breasts",
+      "1 small onion",
+      "2 cloves garlic",
+      "1 tbsp cooking oil",
+      "1 cup chicken stock",
+      "Salt and black pepper"
+    ],
+    "steps": [
+      {
+        "title": "Prepare the chicken",
+        "text": "Season the chicken with salt and pepper."
+      },
+      {
+        "title": "Cook the chicken",
+        "text": "Heat the oil in a pan and cook the chicken until done."
+      },
+      {
+        "title": "Cook the vegetables",
+        "text": "Add the onion and garlic and cook until softened."
+      },
+      {
+        "title": "Add the rice",
+        "text": "Stir in the rice and chicken stock."
+      },
+      {
+        "title": "Finish cooking",
+        "text": "Cover and cook until the rice is tender. Serve warm."
+      }
+    ]
+  },
+  {
+    "id": "chicken-salad",
+    "title": "Chicken Salad",
+    "rating": "4.7",
+    "time": "20 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Chicken",
+      "Healthy"
+    ],
+    "image": "/images/recipes/chicken-salad.png",
+    "ingredients": [
+      "1 chicken breast",
+      "2 cups lettuce",
+      "1 tomato",
+      "½ cucumber",
+      "¼ red onion",
+      "2 tbsp salad dressing",
+      "Salt and pepper"
+    ],
+    "steps": [
+      {
+        "title": "Cook the chicken",
+        "text": "Season the chicken and cook in a pan until fully cooked. Slice it into pieces."
+      },
+      {
+        "title": "Prepare the vegetables",
+        "text": "Chop the lettuce, tomato, cucumber and onion."
+      },
+      {
+        "title": "Combine",
+        "text": "Place the vegetables and chicken in a bowl."
+      },
+      {
+        "title": "Add dressing",
+        "text": "Drizzle with dressing, toss gently and serve."
+      }
+    ]
+  },
+  {
+    "id": "margherita-pizza",
+    "title": "Margherita Pizza",
+    "rating": "4.9",
+    "time": "20 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Pizza"
+    ],
+    "image": "/images/recipes/margherita-pizza.png",
+    "ingredients": [
+      "1 pizza base",
+      "3 tbsp tomato sauce",
+      "½ cup mozzarella cheese",
+      "1 tomato, sliced",
+      "Fresh basil leaves",
+      "1 tsp olive oil",
+      "Salt and pepper"
+    ],
+    "steps": [
+      {
+        "title": "Prepare the base",
+        "text": "Place the pizza base on a baking tray and spread the tomato sauce over it."
+      },
+      {
+        "title": "Add toppings",
+        "text": "Add mozzarella and tomato slices. Season lightly with salt and pepper."
+      },
+      {
+        "title": "Bake",
+        "text": "Bake at 200°C until the cheese melts and the crust is golden."
+      },
+      {
+        "title": "Finish",
+        "text": "Add fresh basil and drizzle with a little olive oil."
+      }
+    ]
+  },
+  {
+    "id": "pesto-pizza",
+    "title": "Pesto Pizza",
+    "rating": "4.6",
+    "time": "15 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Pizza"
+    ],
+    "image": "/images/recipes/pesto-pizza.png",
+    "ingredients": [
+      "1 pizza base",
+      "3 tbsp pesto sauce",
+      "½ cup mozzarella cheese",
+      "½ cup cherry tomatoes",
+      "¼ cup sliced mushrooms",
+      "Fresh basil",
+      "1 tsp olive oil"
+    ],
+    "steps": [
+      {
+        "title": "Prepare the base",
+        "text": "Place the pizza base on a baking tray and spread the pesto over it."
+      },
+      {
+        "title": "Add toppings",
+        "text": "Add mozzarella, tomatoes and mushrooms."
+      },
+      {
+        "title": "Bake",
+        "text": "Bake at 200°C until the cheese melts and the crust is golden."
+      },
+      {
+        "title": "Serve",
+        "text": "Top with fresh basil and a small drizzle of olive oil."
+      }
+    ]
+  },
+  {
+    "id": "chocolate-brownies",
+    "title": "Chocolate Brownies",
+    "rating": "4.8",
+    "time": "40 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Brownies"
+    ],
+    "image": "/images/recipes/chocolate-brownies.png",
+    "detailTime": "35 min",
+    "ingredients": [
+      "½ cup butter",
+      "1 cup sugar",
+      "2 eggs",
+      "½ cup cocoa powder",
+      "¾ cup flour",
+      "1 tsp vanilla",
+      "Pinch of salt"
+    ],
+    "steps": [
+      {
+        "title": "Prepare the mixture",
+        "text": "Melt the butter and mix it with sugar, eggs and vanilla."
+      },
+      {
+        "title": "Add dry ingredients",
+        "text": "Stir in cocoa powder, flour and salt until combined."
+      },
+      {
+        "title": "Bake",
+        "text": "Pour into a greased baking pan and bake at 180°C for about 20–25 minutes."
+      },
+      {
+        "title": "Cool and serve",
+        "text": "Allow the brownies to cool before cutting them into squares."
+      }
+    ]
+  },
+  {
+    "id": "chocolate-chip-brownies",
+    "title": "Chocolate Chip Brownies",
+    "rating": "4.6",
+    "time": "15 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Brownies"
+    ],
+    "image": "/images/recipes/chocolate-chip-brownies.png",
+    "detailTime": "35 min",
+    "ingredients": [
+      "½ cup butter",
+      "¾ cup sugar",
+      "2 eggs",
+      "½ cup cocoa powder",
+      "¾ cup flour",
+      "½ cup chocolate chips",
+      "1 tsp vanilla",
+      "Pinch of salt"
+    ],
+    "steps": [
+      {
+        "title": "Mix the wet ingredients",
+        "text": "Combine melted butter, sugar, eggs and vanilla."
+      },
+      {
+        "title": "Add dry ingredients",
+        "text": "Stir in flour, cocoa powder and salt."
+      },
+      {
+        "title": "Add chocolate chips",
+        "text": "Fold in the chocolate chips."
+      },
+      {
+        "title": "Bake",
+        "text": "Pour into a baking pan and bake at 180°C for about 20–25 minutes."
+      },
+      {
+        "title": "Serve",
+        "text": "Cool before slicing."
+      }
+    ]
+  },
+  {
+    "id": "fluffy-pancakes",
+    "title": "Fluffy Pancakes",
+    "rating": "4.7",
+    "time": "20 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Pancakes",
+      "Deserts",
+      "Desserts"
+    ],
+    "image": "/images/recipes/fluffy-pancakes.png",
+    "ingredients": [
+      "1 cup flour",
+      "1 tbsp sugar",
+      "1 tsp baking powder",
+      "1 egg",
+      "¾ cup milk",
+      "2 tbsp melted butter",
+      "Pinch of salt"
+    ],
+    "steps": [
+      {
+        "title": "Mix dry ingredients",
+        "text": "Combine flour, sugar, baking powder and salt."
+      },
+      {
+        "title": "Add wet ingredients",
+        "text": "Add the egg, milk and melted butter. Mix until just combined."
+      },
+      {
+        "title": "Cook",
+        "text": "Pour small amounts of batter into a lightly greased pan."
+      },
+      {
+        "title": "Flip",
+        "text": "Cook until bubbles appear, then flip and cook the other side."
+      },
+      {
+        "title": "Serve",
+        "text": "Serve warm with fruit, syrup or honey."
+      }
+    ]
+  },
+  {
+    "id": "banana-pancakes",
+    "title": "Banana Pancakes",
+    "rating": "4.6",
+    "time": "15 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Pancakes"
+    ],
+    "image": "/images/recipes/banana-pancakes.png",
+    "detailRating": "4.8",
+    "detailTime": "20 min",
+    "ingredients": [
+      "1 ripe banana",
+      "1 egg",
+      "¾ cup flour",
+      "½ cup milk",
+      "1 tsp baking powder",
+      "1 tbsp sugar",
+      "Pinch of salt"
+    ],
+    "steps": [
+      {
+        "title": "Mash the banana",
+        "text": "Mash the banana in a bowl."
+      },
+      {
+        "title": "Make the batter",
+        "text": "Add the egg and milk. Stir in flour, baking powder, sugar and salt."
+      },
+      {
+        "title": "Cook",
+        "text": "Pour the batter into a lightly greased pan."
+      },
+      {
+        "title": "Flip",
+        "text": "Cook until bubbles appear, then flip and cook the other side."
+      },
+      {
+        "title": "Serve",
+        "text": "Serve warm with banana slices or a little honey."
+      }
+    ]
+  },
+  {
+    "id": "smoothie-bowl",
+    "title": "Smoothie Bowl",
+    "rating": "4.6",
+    "time": "15 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Healthy"
+    ],
+    "image": "/images/recipes/smoothie-bowl.png",
+    "detailRating": "4.7",
+    "detailTime": "10 min",
+    "ingredients": [
+      "1 banana",
+      "1 cup mixed berries",
+      "½ cup yogurt",
+      "½ cup milk",
+      "1 tsp honey (optional)",
+      "1 kiwi",
+      "A few extra berries",
+      "Small handful of nuts"
+    ],
+    "steps": [
+      {
+        "title": "Blend",
+        "text": "Blend the banana, berries, yogurt and milk until thick and smooth."
+      },
+      {
+        "title": "Pour",
+        "text": "Pour the smoothie mixture into a bowl."
+      },
+      {
+        "title": "Add toppings",
+        "text": "Slice the kiwi and add it with the extra berries."
+      },
+      {
+        "title": "Garnish",
+        "text": "Sprinkle a few nuts over the top and serve immediately."
+      }
+    ]
+  },
+  {
+    "id": "grilled-steak",
+    "title": "Grilled Steak",
+    "rating": "4.7",
+    "time": "20 min",
+    "difficulty": "Hard",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Dinner"
+    ],
+    "image": "/images/recipes/grilled-steak.png",
+    "ingredients": [
+      "1 steak",
+      "1 tsp cooking oil",
+      "Salt",
+      "Black pepper",
+      "1 garlic clove",
+      "1 tsp butter"
+    ],
+    "steps": [
+      {
+        "title": "Season",
+        "text": "Season both sides of the steak with salt and pepper."
+      },
+      {
+        "title": "Heat the pan",
+        "text": "Heat the oil in a hot pan."
+      },
+      {
+        "title": "Cook the steak",
+        "text": "Cook the steak for a few minutes on each side, depending on how well done you prefer it."
+      },
+      {
+        "title": "Add butter",
+        "text": "Add butter and garlic during the final minute and spoon the melted butter over the steak."
+      },
+      {
+        "title": "Rest and serve",
+        "text": "Let the steak rest for a few minutes before serving."
+      }
+    ]
+  },
+  {
+    "id": "creamy-tuscan-salmon",
+    "title": "Creamy Tuscan Salmon",
+    "rating": "4.6",
+    "time": "15 min",
+    "difficulty": "Hard",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Dinner"
+    ],
+    "image": "/images/recipes/creamy-tuscan-salmon.png",
+    "detailTime": "30 min",
+    "ingredients": [
+      "2 salmon fillets",
+      "1 tbsp cooking oil",
+      "2 cloves garlic",
+      "½ cup cooking cream",
+      "½ cup spinach",
+      "½ cup cherry tomatoes",
+      "¼ cup Parmesan cheese",
+      "Salt and pepper"
+    ],
+    "steps": [
+      {
+        "title": "Season the salmon",
+        "text": "Season the salmon with salt and pepper."
+      },
+      {
+        "title": "Cook the salmon",
+        "text": "Heat oil in a pan and cook the salmon on both sides until done. Remove from the pan."
+      },
+      {
+        "title": "Make the sauce",
+        "text": "Cook the garlic and tomatoes for a few minutes. Add cream and Parmesan."
+      },
+      {
+        "title": "Add spinach",
+        "text": "Stir in the spinach until it becomes soft."
+      },
+      {
+        "title": "Combine",
+        "text": "Return the salmon to the pan and spoon the sauce over it. Serve warm."
+      }
+    ]
+  },
+  {
+    "id": "black-forest-trifle",
+    "title": "Black Forest Trifle",
+    "rating": "4.6",
+    "time": "15 min",
+    "difficulty": "Easy",
+    "servings": null,
+    "ingredientStyle": "plain",
+    "tags": [
+      "Deserts",
+      "Desserts"
+    ],
+    "image": "/images/recipes/black-forest-trifle.png",
+    "detailRating": "4.8",
+    "detailTime": "30 min",
+    "ingredients": [
+      "Chocolate cake",
+      "1 cup whipped cream",
+      "½ cup cherries",
+      "½ cup chocolate pudding",
+      "2 tbsp chocolate shavings",
+      "A few cherries for topping"
+    ],
+    "steps": [
+      {
+        "title": "Prepare the cake",
+        "text": "Cut the chocolate cake into small pieces."
+      },
+      {
+        "title": "Make the first layer",
+        "text": "Place some cake pieces at the bottom of a glass or serving bowl."
+      },
+      {
+        "title": "Add layers",
+        "text": "Add chocolate pudding, cherries and whipped cream."
+      },
+      {
+        "title": "Repeat",
+        "text": "Continue layering until the glass is almost full."
+      },
+      {
+        "title": "Garnish",
+        "text": "Top with whipped cream, chocolate shavings and a cherry."
+      },
+      {
+        "title": "Chill",
+        "text": "Refrigerate for at least 30 minutes before serving."
+      }
+    ]
+  }
+]

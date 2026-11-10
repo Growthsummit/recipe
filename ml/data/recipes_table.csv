@@ -1,0 +1,15 @@
+recipe_id,title,category,cook_minutes,difficulty,rating,n_ingredients,n_steps
+creamy-garlic-pasta,Creamy Garlic Pasta,Pasta,25,1,4.8,6,5
+veggie-spaghetti,Veggie Spaghetti,Pasta,25,1,4.8,8,4
+chicken-and-rice,Chicken and Rice,Chicken,35,1,4.7,7,5
+chicken-salad,Chicken Salad,Chicken,20,1,4.7,7,4
+margherita-pizza,Margherita Pizza,Pizza,20,1,4.9,7,4
+pesto-pizza,Pesto Pizza,Pizza,15,1,4.6,7,4
+chocolate-brownies,Chocolate Brownies,Brownies,40,1,4.8,7,4
+chocolate-chip-brownies,Chocolate Chip Brownies,Brownies,15,1,4.6,8,5
+fluffy-pancakes,Fluffy Pancakes,Pancakes,20,1,4.7,7,5
+banana-pancakes,Banana Pancakes,Pancakes,15,1,4.6,7,5
+smoothie-bowl,Smoothie Bowl,Healthy,15,1,4.6,8,4
+grilled-steak,Grilled Steak,Dinner,20,2,4.7,6,5
+creamy-tuscan-salmon,Creamy Tuscan Salmon,Dinner,15,2,4.6,8,5
+black-forest-trifle,Black Forest Trifle,Desserts,15,1,4.6,6,6

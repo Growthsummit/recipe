@@ -1,0 +1,767 @@
+{
+ "meta": {
+  "synthetic": true,
+  "seed": 42,
+  "rows": 21012,
+  "users": 1500,
+  "recipes": 14,
+  "train_rows": 16781,
+  "test_rows": 4231,
+  "target": "favourited (user saves a recipe)",
+  "objective": "Boost engagement and enhance content discovery: rank recipes by the probability a user will favourite them.",
+  "split": "GroupShuffleSplit by user (80/20)",
+  "seconds": 18.9
+ },
+ "overview": {
+  "impressions": 21012,
+  "users": 1500,
+  "favourites": 3478,
+  "favourite_rate": 0.1655244622120693,
+  "by_category": [
+   {
+    "label": "Pizza",
+    "rate": 0.21783819628647214,
+    "impressions": 3016
+   },
+   {
+    "label": "Pasta",
+    "rate": 0.19580656070341562,
+    "impressions": 2957
+   },
+   {
+    "label": "Pancakes",
+    "rate": 0.16666666666666666,
+    "impressions": 3054
+   },
+   {
+    "label": "Chicken",
+    "rate": 0.1626205520452278,
+    "impressions": 3007
+   },
+   {
+    "label": "Brownies",
+    "rate": 0.14956695536309128,
+    "impressions": 3002
+   },
+   {
+    "label": "Dinner",
+    "rate": 0.13665432514304948,
+    "impressions": 2971
+   },
+   {
+    "label": "Desserts",
+    "rate": 0.13360053440213762,
+    "impressions": 1497
+   },
+   {
+    "label": "Healthy",
+    "rate": 0.1253315649867374,
+    "impressions": 1508
+   }
+  ],
+  "by_source": [
+   {
+    "label": "category",
+    "rate": 0.15830945558739254,
+    "impressions": 4188
+   },
+   {
+    "label": "home",
+    "rate": 0.12975796993282865,
+    "impressions": 9379
+   },
+   {
+    "label": "search",
+    "rate": 0.21464069845533915,
+    "impressions": 7445
+   }
+  ],
+  "by_skill": [
+   {
+    "label": "advanced",
+    "rate": 0.17853881278538813,
+    "impressions": 4380
+   },
+   {
+    "label": "beginner",
+    "rate": 0.155420773313116,
+    "impressions": 10552
+   },
+   {
+    "label": "intermediate",
+    "rate": 0.1736842105263158,
+    "impressions": 6080
+   }
+  ],
+  "by_device": [
+   {
+    "label": "desktop",
+    "rate": 0.16864550520959534,
+    "impressions": 4127
+   },
+   {
+    "label": "mobile",
+    "rate": 0.16476162274207876,
+    "impressions": 16885
+   }
+  ],
+  "by_hour": [
+   {
+    "label": "0",
+    "rate": 0.15267175572519084,
+    "impressions": 262
+   },
+   {
+    "label": "1",
+    "rate": 0.168141592920354,
+    "impressions": 226
+   },
+   {
+    "label": "2",
+    "rate": 0.13445378151260504,
+    "impressions": 238
+   },
+   {
+    "label": "3",
+    "rate": 0.13953488372093023,
+    "impressions": 215
+   },
+   {
+    "label": "4",
+    "rate": 0.10628019323671498,
+    "impressions": 207
+   },
+   {
+    "label": "5",
+    "rate": 0.13777777777777778,
+    "impressions": 450
+   },
+   {
+    "label": "6",
+    "rate": 0.13172043010752688,
+    "impressions": 744
+   },
+   {
+    "label": "7",
+    "rate": 0.15879828326180256,
+    "impressions": 932
+   },
+   {
+    "label": "8",
+    "rate": 0.17516629711751663,
+    "impressions": 902
+   },
+   {
+    "label": "9",
+    "rate": 0.167574931880109,
+    "impressions": 734
+   },
+   {
+    "label": "10",
+    "rate": 0.14136904761904762,
+    "impressions": 672
+   },
+   {
+    "label": "11",
+    "rate": 0.16295636687444345,
+    "impressions": 1123
+   },
+   {
+    "label": "12",
+    "rate": 0.13753581661891118,
+    "impressions": 1396
+   },
+   {
+    "label": "13",
+    "rate": 0.13765182186234817,
+    "impressions": 988
+   },
+   {
+    "label": "14",
+    "rate": 0.14421553090332806,
+    "impressions": 631
+   },
+   {
+    "label": "15",
+    "rate": 0.12759643916913946,
+    "impressions": 674
+   },
+   {
+    "label": "16",
+    "rate": 0.17401129943502824,
+    "impressions": 885
+   },
+   {
+    "label": "17",
+    "rate": 0.19141193595342068,
+    "impressions": 1374
+   },
+   {
+    "label": "18",
+    "rate": 0.18900160170848906,
+    "impressions": 1873
+   },
+   {
+    "label": "19",
+    "rate": 0.19168260038240917,
+    "impressions": 2092
+   },
+   {
+    "label": "20",
+    "rate": 0.19317556411667583,
+    "impressions": 1817
+   },
+   {
+    "label": "21",
+    "rate": 0.1797505502567865,
+    "impressions": 1363
+   },
+   {
+    "label": "22",
+    "rate": 0.16759002770083103,
+    "impressions": 722
+   },
+   {
+    "label": "23",
+    "rate": 0.11178861788617886,
+    "impressions": 492
+   }
+  ],
+  "by_position": [
+   {
+    "label": "1",
+    "rate": 0.19924075434729366,
+    "impressions": 8166
+   },
+   {
+    "label": "2",
+    "rate": 0.16662582700318548,
+    "impressions": 8162
+   },
+   {
+    "label": "3",
+    "rate": 0.12121212121212122,
+    "impressions": 2343
+   },
+   {
+    "label": "4",
+    "rate": 0.08842375053395984,
+    "impressions": 2341
+   }
+  ]
+ },
+ "models": [
+  {
+   "name": "Logistic Regression",
+   "accuracy": 0.8225005908768612,
+   "precision": 0.33205374280230326,
+   "recall": 0.46630727762803237,
+   "f1": 0.38789237668161436,
+   "auc": 0.6890763346335307,
+   "train_auc": 0.6835848223858566,
+   "threshold": 0.21000000000000002,
+   "accuracy_at_threshold": 0.7419049870007091
+  },
+  {
+   "name": "Random Forest",
+   "accuracy": 0.8253367998109195,
+   "precision": 0.3145580589254766,
+   "recall": 0.48921832884097033,
+   "f1": 0.3829113924050633,
+   "auc": 0.6870261870383546,
+   "train_auc": 0.8374697088930941,
+   "threshold": 0.21000000000000002,
+   "accuracy_at_threshold": 0.7234696289293311
+  },
+  {
+   "name": "Gradient Boosting",
+   "accuracy": 0.8246277475774049,
+   "precision": 0.3094098883572568,
+   "recall": 0.522911051212938,
+   "f1": 0.38877755511022044,
+   "auc": 0.700691584409685,
+   "train_auc": 0.7239326158192443,
+   "threshold": 0.19,
+   "accuracy_at_threshold": 0.7116520917040888
+  }
+ ],
+ "best_model": "Gradient Boosting",
+ "baseline_accuracy": 0.8246277475774049,
+ "threshold": 0.19,
+ "roc": [
+  {
+   "fpr": 0.0,
+   "tpr": 0.0
+  },
+  {
+   "fpr": 0.0071653768988248785,
+   "tpr": 0.03369272237196765
+  },
+  {
+   "fpr": 0.01834336486099169,
+   "tpr": 0.07816711590296496
+  },
+  {
+   "fpr": 0.028948122671252508,
+   "tpr": 0.11320754716981132
+  },
+  {
+   "fpr": 0.03840642017770135,
+   "tpr": 0.14824797843665768
+  },
+  {
+   "fpr": 0.0470048724562912,
+   "tpr": 0.1765498652291105
+  },
+  {
+   "fpr": 0.058182860418458014,
+   "tpr": 0.21428571428571427
+  },
+  {
+   "fpr": 0.06706792777300086,
+   "tpr": 0.24932614555256064
+  },
+  {
+   "fpr": 0.07824591573516768,
+   "tpr": 0.2816711590296496
+  },
+  {
+   "fpr": 0.09515620521639438,
+   "tpr": 0.3086253369272237
+  },
+  {
+   "fpr": 0.1117798796216681,
+   "tpr": 0.34097035040431267
+  },
+  {
+   "fpr": 0.13356262539409572,
+   "tpr": 0.37331536388140163
+  },
+  {
+   "fpr": 0.1533390656348524,
+   "tpr": 0.4002695417789757
+  },
+  {
+   "fpr": 0.16881627973631413,
+   "tpr": 0.42048517520215634
+  },
+  {
+   "fpr": 0.19031241043278876,
+   "tpr": 0.44878706199460916
+  },
+  {
+   "fpr": 0.20722269991401548,
+   "tpr": 0.4757412398921833
+  },
+  {
+   "fpr": 0.2295786758383491,
+   "tpr": 0.5
+  },
+  {
+   "fpr": 0.2467755803955288,
+   "tpr": 0.5215633423180593
+  },
+  {
+   "fpr": 0.27228432215534537,
+   "tpr": 0.5431266846361186
+  },
+  {
+   "fpr": 0.29263399254800804,
+   "tpr": 0.5673854447439353
+  },
+  {
+   "fpr": 0.3164230438521066,
+   "tpr": 0.5929919137466307
+  },
+  {
+   "fpr": 0.33963886500429924,
+   "tpr": 0.6145552560646901
+  },
+  {
+   "fpr": 0.36170822585267987,
+   "tpr": 0.637466307277628
+  },
+  {
+   "fpr": 0.3849240470048725,
+   "tpr": 0.6657681940700808
+  },
+  {
+   "fpr": 0.40154772141014616,
+   "tpr": 0.6886792452830188
+  },
+  {
+   "fpr": 0.4284895385497277,
+   "tpr": 0.7102425876010782
+  },
+  {
+   "fpr": 0.4537116652335913,
+   "tpr": 0.7223719676549866
+  },
+  {
+   "fpr": 0.47836056176554886,
+   "tpr": 0.7452830188679245
+  },
+  {
+   "fpr": 0.5053023789051304,
+   "tpr": 0.7681940700808625
+  },
+  {
+   "fpr": 0.5333906563485239,
+   "tpr": 0.793800539083558
+  },
+  {
+   "fpr": 0.5609057036400115,
+   "tpr": 0.8140161725067385
+  },
+  {
+   "fpr": 0.585841215247922,
+   "tpr": 0.8382749326145552
+  },
+  {
+   "fpr": 0.6185153339065634,
+   "tpr": 0.8611859838274932
+  },
+  {
+   "fpr": 0.6531957580968759,
+   "tpr": 0.8814016172506739
+  },
+  {
+   "fpr": 0.7113786185153339,
+   "tpr": 0.898921832884097
+  },
+  {
+   "fpr": 0.7374605904270565,
+   "tpr": 0.9204851752021563
+  },
+  {
+   "fpr": 0.7867583834909716,
+   "tpr": 0.9433962264150944
+  },
+  {
+   "fpr": 0.8535396961880195,
+   "tpr": 0.9636118598382749
+  },
+  {
+   "fpr": 0.9266265405560332,
+   "tpr": 0.9797843665768194
+  },
+  {
+   "fpr": 1.0,
+   "tpr": 1.0
+  }
+ ],
+ "confusion": {
+  "tn": 2623,
+  "fp": 866,
+  "fn": 354,
+  "tp": 388
+ },
+ "oracle_auc": 0.7629052107547866,
+ "learning_curve": [
+  {
+   "n_rows": 494,
+   "train_auc": 0.9876702439113023,
+   "test_auc": 0.595207064585218,
+   "train_acc": 0.9429202501296476,
+   "test_acc": 0.7994170014968881
+  },
+  {
+   "n_rows": 999,
+   "train_auc": 0.9426691406719053,
+   "test_auc": 0.6357146204848146,
+   "train_acc": 0.8926099898877387,
+   "test_acc": 0.8103679193256125
+  },
+  {
+   "n_rows": 1676,
+   "train_auc": 0.9230487002106161,
+   "test_auc": 0.6304792600644253,
+   "train_acc": 0.8803340715757225,
+   "test_acc": 0.8165130386827385
+  },
+  {
+   "n_rows": 3387,
+   "train_auc": 0.8689636650906468,
+   "test_auc": 0.6509029018681999,
+   "train_acc": 0.8638869691769652,
+   "test_acc": 0.8184826282202788
+  },
+  {
+   "n_rows": 5930,
+   "train_auc": 0.8170833887832423,
+   "test_auc": 0.6703451509905216,
+   "train_acc": 0.8510322583190238,
+   "test_acc": 0.8217127550618452
+  },
+  {
+   "n_rows": 8391,
+   "train_auc": 0.7914252617934454,
+   "test_auc": 0.6794796867680918,
+   "train_acc": 0.8481196967057304,
+   "test_acc": 0.8238399117623887
+  },
+  {
+   "n_rows": 11732,
+   "train_auc": 0.7209013250263979,
+   "test_auc": 0.6958750734241902,
+   "train_acc": 0.8404440927383555,
+   "test_acc": 0.8249428819034114
+  },
+  {
+   "n_rows": 14212,
+   "train_auc": 0.7209322959772889,
+   "test_auc": 0.6963236659330042,
+   "train_acc": 0.8405601132920869,
+   "test_acc": 0.8247065311589065
+  },
+  {
+   "n_rows": 16781,
+   "train_auc": 0.7239326158192444,
+   "test_auc": 0.700691584409685,
+   "train_acc": 0.8412490316429295,
+   "test_acc": 0.8246277475774049
+  }
+ ],
+ "saturation": {
+  "n_rows": 11732,
+  "test_auc": 0.6958750734241902,
+  "final_auc": 0.700691584409685,
+  "rule": "smallest training size within 0.005 AUC of the full-data model"
+ },
+ "importance": [
+  {
+   "feature": "category_match",
+   "importance": 0.06518163747596417,
+   "std": 0.0030526401061348224
+  },
+  {
+   "feature": "source",
+   "importance": 0.020646174075009793,
+   "std": 0.00487319717419531
+  },
+  {
+   "feature": "time_pref",
+   "importance": 0.01898828740925478,
+   "std": 0.004738403995127588
+  },
+  {
+   "feature": "position",
+   "importance": 0.018034345911177186,
+   "std": 0.0032869902006948757
+  },
+  {
+   "feature": "rating",
+   "importance": 0.017083417347860362,
+   "std": 0.0015554243565323563
+  },
+  {
+   "feature": "hour",
+   "importance": 0.013085291547791056,
+   "std": 0.0009236531517969794
+  },
+  {
+   "feature": "cook_minutes",
+   "importance": 0.010838646527901808,
+   "std": 0.0025615442779753743
+  },
+  {
+   "feature": "prior_favourites",
+   "importance": 0.0087140253658206,
+   "std": 0.0019434474888996571
+  },
+  {
+   "feature": "skill",
+   "importance": 0.008295922726721461,
+   "std": 0.0027055172373546313
+  },
+  {
+   "feature": "category",
+   "importance": 0.005767491051970075,
+   "std": 0.0017760619185265988
+  },
+  {
+   "feature": "is_weekend",
+   "importance": 0.001879375998034738,
+   "std": 0.0007170992367233739
+  },
+  {
+   "feature": "difficulty",
+   "importance": 0.0,
+   "std": 0.0
+  },
+  {
+   "feature": "n_steps",
+   "importance": -0.00013098540735252407,
+   "std": 0.0005506118002160291
+  },
+  {
+   "feature": "device",
+   "importance": -0.00035220434805105505,
+   "std": 0.00015403079699026346
+  },
+  {
+   "feature": "age_group",
+   "importance": -0.0004997608965875422,
+   "std": 0.0004886921918638616
+  },
+  {
+   "feature": "n_ingredients",
+   "importance": -0.0008344670466053916,
+   "std": 0.0007351048141262052
+  }
+ ],
+ "recommendations": [
+  {
+   "persona": "Beginner, short on time",
+   "top": [
+    {
+     "recipe_id": "margherita-pizza",
+     "title": "Margherita Pizza",
+     "score": 0.4030142902655143
+    },
+    {
+     "recipe_id": "creamy-garlic-pasta",
+     "title": "Creamy Garlic Pasta",
+     "score": 0.201092472164435
+    },
+    {
+     "recipe_id": "chicken-salad",
+     "title": "Chicken Salad",
+     "score": 0.200819167303466
+    }
+   ]
+  },
+  {
+   "persona": "Beginner, flexible",
+   "top": [
+    {
+     "recipe_id": "margherita-pizza",
+     "title": "Margherita Pizza",
+     "score": 0.3296273101445615
+    },
+    {
+     "recipe_id": "creamy-garlic-pasta",
+     "title": "Creamy Garlic Pasta",
+     "score": 0.2130943634001094
+    },
+    {
+     "recipe_id": "veggie-spaghetti",
+     "title": "Veggie Spaghetti",
+     "score": 0.19680697367450728
+    }
+   ]
+  },
+  {
+   "persona": "Intermediate, flexible",
+   "top": [
+    {
+     "recipe_id": "margherita-pizza",
+     "title": "Margherita Pizza",
+     "score": 0.3587996206791937
+    },
+    {
+     "recipe_id": "creamy-garlic-pasta",
+     "title": "Creamy Garlic Pasta",
+     "score": 0.2363128892373732
+    },
+    {
+     "recipe_id": "veggie-spaghetti",
+     "title": "Veggie Spaghetti",
+     "score": 0.21228792907526334
+    }
+   ]
+  },
+  {
+   "persona": "Advanced, flexible",
+   "top": [
+    {
+     "recipe_id": "margherita-pizza",
+     "title": "Margherita Pizza",
+     "score": 0.345918286811011
+    },
+    {
+     "recipe_id": "creamy-garlic-pasta",
+     "title": "Creamy Garlic Pasta",
+     "score": 0.22092537026184306
+    },
+    {
+     "recipe_id": "grilled-steak",
+     "title": "Grilled Steak",
+     "score": 0.20311898880291954
+    }
+   ]
+  }
+ ],
+ "recipe_scores": [
+  {
+   "recipe_id": "margherita-pizza",
+   "title": "Margherita Pizza",
+   "score": 0.3593398769750701
+  },
+  {
+   "recipe_id": "creamy-garlic-pasta",
+   "title": "Creamy Garlic Pasta",
+   "score": 0.21785627376594013
+  },
+  {
+   "recipe_id": "veggie-spaghetti",
+   "title": "Veggie Spaghetti",
+   "score": 0.19895520753324347
+  },
+  {
+   "recipe_id": "chicken-salad",
+   "title": "Chicken Salad",
+   "score": 0.18053743018626733
+  },
+  {
+   "recipe_id": "fluffy-pancakes",
+   "title": "Fluffy Pancakes",
+   "score": 0.17730597735761164
+  },
+  {
+   "recipe_id": "chocolate-brownies",
+   "title": "Chocolate Brownies",
+   "score": 0.16169150909009383
+  },
+  {
+   "recipe_id": "pesto-pizza",
+   "title": "Pesto Pizza",
+   "score": 0.14600318329495465
+  },
+  {
+   "recipe_id": "grilled-steak",
+   "title": "Grilled Steak",
+   "score": 0.14450382042210957
+  },
+  {
+   "recipe_id": "banana-pancakes",
+   "title": "Banana Pancakes",
+   "score": 0.1432977226375693
+  },
+  {
+   "recipe_id": "black-forest-trifle",
+   "title": "Black Forest Trifle",
+   "score": 0.1377397131149456
+  },
+  {
+   "recipe_id": "chocolate-chip-brownies",
+   "title": "Chocolate Chip Brownies",
+   "score": 0.1368192404745654
+  },
+  {
+   "recipe_id": "chicken-and-rice",
+   "title": "Chicken and Rice",
+   "score": 0.13295857159820643
+  },
+  {
+   "recipe_id": "smoothie-bowl",
+   "title": "Smoothie Bowl",
+   "score": 0.1300231499113778
+  },
+  {
+   "recipe_id": "creamy-tuscan-salmon",
+   "title": "Creamy Tuscan Salmon",
+   "score": 0.11479565073826742
+  }
+ ]
+}

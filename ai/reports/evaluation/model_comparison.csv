@@ -1,0 +1,4 @@
+model,primary_metric,value,interpretation
+TF-IDF + cosine,Recall@10,0.001755926251097454,Share of held-out positive-rated recipes appearing in the top ten.
+Random Forest regression,MAE on log1p target,0.2611463703450911,Error for future interaction count on log1p scale; lower is better.
+K-Means,Silhouette score,0.272903208195955,Cluster separation/cohesion on the recipe feature representation; higher is better.

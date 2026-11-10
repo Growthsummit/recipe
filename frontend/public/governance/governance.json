@@ -1,0 +1,314 @@
+{
+ "classification": [
+  {
+   "id": "D01",
+   "element": "Recipe catalogue (titles, ingredients, instructions, photographs)",
+   "location": "Static app bundle (src/data/recipes.js, public/images)",
+   "personal": "No",
+   "level": "Public",
+   "rationale": "Published content intended for everyone; no personal data.",
+   "controls": "Integrity of the bundle (HTTPS, build hashing).",
+   "access": "All actors (read); Admin (write)"
+  },
+  {
+   "id": "D02",
+   "element": "Recipe ratings, cooking time, difficulty",
+   "location": "Static app bundle",
+   "personal": "No",
+   "level": "Public",
+   "rationale": "Descriptive catalogue attributes shown to all visitors.",
+   "controls": "Change control on the data file.",
+   "access": "All actors (read); Admin (write)"
+  },
+  {
+   "id": "D03",
+   "element": "Search text typed by the user",
+   "location": "Browser memory only (React state)",
+   "personal": "Yes - may reveal preferences",
+   "level": "Private",
+   "rationale": "Not stored or transmitted; could reveal dietary or personal interests if logged.",
+   "controls": "Do not log or send to third parties.",
+   "access": "The user"
+  },
+  {
+   "id": "D04",
+   "element": "Favourites list (recipe IDs)",
+   "location": "Browser localStorage (recipebox.favourites)",
+   "personal": "Yes - linked to a device/person",
+   "level": "Private",
+   "rationale": "Reveals a person's tastes; only the owner needs it.",
+   "controls": "Write limited to User role; clear on logout/shared devices.",
+   "access": "User (read/write)"
+  },
+  {
+   "id": "D05",
+   "element": "Profile display name ('Relebohile')",
+   "location": "Hard-coded in the profile screen",
+   "personal": "Yes",
+   "level": "Private",
+   "rationale": "Directly identifies a person.",
+   "controls": "Collect only with a lawful basis; never place on the ledger.",
+   "access": "User (read/write)"
+  },
+  {
+   "id": "D06",
+   "element": "Notification preferences",
+   "location": "Not implemented in the app ('No Notifications yet!!')",
+   "personal": "Yes - if introduced",
+   "level": "Private",
+   "rationale": "Would describe a user's contact preferences.",
+   "controls": "Opt-in consent before any notification is sent.",
+   "access": "User"
+  },
+  {
+   "id": "D07",
+   "element": "Active role / actor selection",
+   "location": "Browser localStorage (recipebox.actor)",
+   "personal": "No",
+   "level": "Private",
+   "rationale": "Controls what the interface shows; not sensitive alone but not for public display.",
+   "controls": "Replace with server-issued session/token in production.",
+   "access": "Security Admin"
+  },
+  {
+   "id": "D08",
+   "element": "Blockchain ledger records (event type, recipe ID, pseudonymous actor ID, timestamp, hashes)",
+   "location": "Browser localStorage (recipebox.nodes), 3 simulated nodes",
+   "personal": "Pseudonymised",
+   "level": "Confidential",
+   "rationale": "Immutable behavioural records; pseudonymised personal data under GDPR; integrity is business-critical.",
+   "controls": "Hash-chain + consensus; read for Analyst/Admin only; no names on chain.",
+   "access": "Analyst, Admin (read)"
+  },
+  {
+   "id": "D09",
+   "element": "Pseudonymisation salt",
+   "location": "Browser localStorage (recipebox.salt)",
+   "personal": "Yes - enables re-identification",
+   "level": "Restricted",
+   "rationale": "Whoever holds the salt can link pseudonyms back to the actor.",
+   "controls": "Never exported; server-side secret store in production; rotate on erasure request.",
+   "access": "Security Admin only"
+  },
+  {
+   "id": "D10",
+   "element": "Access-control policy (role x module read/write matrix)",
+   "location": "Browser localStorage (recipebox.policy)",
+   "personal": "No",
+   "level": "Restricted",
+   "rationale": "Tampering allows privilege escalation across the whole application.",
+   "controls": "Editable only through the Security Configuration module (Admin domain); audit every change.",
+   "access": "Security Admin only"
+  },
+  {
+   "id": "D11",
+   "element": "Access-denied / audit events",
+   "location": "Blockchain ledger (type ACCESS_DENIED)",
+   "personal": "Pseudonymised",
+   "level": "Confidential",
+   "rationale": "Security-relevant evidence; may expose attack patterns.",
+   "controls": "Append-only; Analyst/Admin read.",
+   "access": "Analyst, Admin (read)"
+  },
+  {
+   "id": "D12",
+   "element": "AI interaction dataset (users, impressions, favourites)",
+   "location": "ml/data/recipebox_interactions.csv",
+   "personal": "Simulated now; Yes with real users",
+   "level": "Confidential",
+   "rationale": "Behavioural data about people if real users replace the simulation.",
+   "controls": "Anonymise/aggregate before sharing; restrict raw rows to Analyst.",
+   "access": "Data Analyst"
+  },
+  {
+   "id": "D13",
+   "element": "AI model outputs (metrics, recommendations)",
+   "location": "public/ai/metrics.json",
+   "personal": "No (aggregated)",
+   "level": "Private",
+   "rationale": "Internal analytics; aggregated, but not meant for the public.",
+   "controls": "Serve only to roles with AI Dashboards read access.",
+   "access": "Analyst, Admin"
+  },
+  {
+   "id": "D14",
+   "element": "Authentication credentials / tokens (future)",
+   "location": "Not implemented",
+   "personal": "Yes",
+   "level": "Restricted",
+   "rationale": "Would grant account access if the app adds sign-in.",
+   "controls": "Hash passwords, short-lived tokens, MFA.",
+   "access": "Security Admin only"
+  }
+ ],
+ "gdpr": [
+  {
+   "article": "Art. 5(1)(a)",
+   "principle": "Lawfulness, fairness and transparency",
+   "requirement": "Tell people what is processed and why.",
+   "status": "Partially compliant",
+   "evidence": "Data use is simple, but the Figma design has no privacy notice.",
+   "action": "Add a privacy notice reachable from About RecipeBox."
+  },
+  {
+   "article": "Art. 5(1)(b)",
+   "principle": "Purpose limitation",
+   "requirement": "Use data only for the stated purpose.",
+   "status": "Compliant",
+   "evidence": "Favourites and events are used only for saved recipes, integrity and recommendations.",
+   "action": "Keep purposes documented when features grow."
+  },
+  {
+   "article": "Art. 5(1)(c)",
+   "principle": "Data minimisation",
+   "requirement": "Collect only what is needed.",
+   "status": "Compliant",
+   "evidence": "No registration, no backend; the ledger stores only event type, recipe ID and a pseudonym.",
+   "action": "-"
+  },
+  {
+   "article": "Art. 5(1)(d)",
+   "principle": "Accuracy",
+   "requirement": "Keep personal data accurate.",
+   "status": "Partially compliant",
+   "evidence": "Profile name is fixed text and cannot be corrected by the user.",
+   "action": "Allow editing the display name."
+  },
+  {
+   "article": "Art. 5(1)(e)",
+   "principle": "Storage limitation",
+   "requirement": "Do not keep data longer than necessary.",
+   "status": "Partially compliant",
+   "evidence": "localStorage has no expiry; ledger blocks are permanent.",
+   "action": "Add retention periods and a 'clear my data' action."
+  },
+  {
+   "article": "Art. 5(1)(f)",
+   "principle": "Integrity and confidentiality",
+   "requirement": "Protect against tampering and unauthorised access.",
+   "status": "Partially compliant",
+   "evidence": "Hash-chained ledger detects tampering and RBAC limits modules, but enforcement is client-side and data is not encrypted at rest.",
+   "action": "Enforce RBAC on a server; encrypt sensitive stores."
+  },
+  {
+   "article": "Art. 6",
+   "principle": "Lawful basis",
+   "requirement": "Have a lawful basis for processing.",
+   "status": "Partially compliant",
+   "evidence": "Processing is limited to features the user asks for, but the basis is not recorded.",
+   "action": "Document the basis (consent or legitimate interest)."
+  },
+  {
+   "article": "Art. 7",
+   "principle": "Conditions for consent",
+   "requirement": "Consent must be explicit, informed and withdrawable.",
+   "status": "Non-compliant",
+   "evidence": "No consent mechanism exists (not in the design).",
+   "action": "Add consent before any non-essential processing (e.g. analytics)."
+  },
+  {
+   "article": "Art. 12-14",
+   "principle": "Information to data subjects",
+   "requirement": "Provide clear privacy information.",
+   "status": "Non-compliant",
+   "evidence": "No privacy policy screen.",
+   "action": "Publish a privacy policy."
+  },
+  {
+   "article": "Art. 15",
+   "principle": "Right of access",
+   "requirement": "Let people see their data.",
+   "status": "Partially compliant",
+   "evidence": "Favourites are visible in the Favourites screen; no full export.",
+   "action": "Provide a 'view my data' summary."
+  },
+  {
+   "article": "Art. 16",
+   "principle": "Right to rectification",
+   "requirement": "Let people correct their data.",
+   "status": "Non-compliant",
+   "evidence": "Display name cannot be changed.",
+   "action": "Add profile editing."
+  },
+  {
+   "article": "Art. 17",
+   "principle": "Right to erasure",
+   "requirement": "Let people delete their data.",
+   "status": "Partially compliant",
+   "evidence": "Favourites can be removed; ledger entries cannot be deleted, but hold only pseudonymous IDs (rotating the salt unlinks them).",
+   "action": "Add a 'delete my data' action that clears storage and rotates the salt."
+  },
+  {
+   "article": "Art. 20",
+   "principle": "Data portability",
+   "requirement": "Provide data in a machine-readable format.",
+   "status": "Non-compliant",
+   "evidence": "No export function.",
+   "action": "Add JSON export of favourites."
+  },
+  {
+   "article": "Art. 21",
+   "principle": "Right to object (profiling)",
+   "requirement": "Allow objection to profiling.",
+   "status": "Not applicable",
+   "evidence": "The model is trained on simulated data only.",
+   "action": "Re-assess before training on real user data."
+  },
+  {
+   "article": "Art. 22",
+   "principle": "Automated decision-making",
+   "requirement": "No solely automated decisions with significant effects.",
+   "status": "Not applicable",
+   "evidence": "Recommendations have no legal or similar effect.",
+   "action": "-"
+  },
+  {
+   "article": "Art. 25",
+   "principle": "Data protection by design and default",
+   "requirement": "Build privacy into the design.",
+   "status": "Compliant",
+   "evidence": "Minimal data, local-only storage, pseudonymisation on the ledger, role-based access.",
+   "action": "-"
+  },
+  {
+   "article": "Art. 30",
+   "principle": "Records of processing",
+   "requirement": "Maintain a record of processing activities.",
+   "status": "Partially compliant",
+   "evidence": "The Data Classification sheet works as a register but lacks controller details.",
+   "action": "Add controller/contact and retention columns."
+  },
+  {
+   "article": "Art. 32",
+   "principle": "Security of processing",
+   "requirement": "Appropriate technical and organisational measures.",
+   "status": "Partially compliant",
+   "evidence": "Integrity and access controls exist; no authentication, no encryption at rest.",
+   "action": "Add authentication and encryption."
+  },
+  {
+   "article": "Art. 33-34",
+   "principle": "Breach notification",
+   "requirement": "Notify authority within 72 hours.",
+   "status": "Non-compliant",
+   "evidence": "No incident-response procedure.",
+   "action": "Write a breach-response plan."
+  },
+  {
+   "article": "Art. 35",
+   "principle": "Data protection impact assessment",
+   "requirement": "DPIA for high-risk processing.",
+   "status": "Not applicable",
+   "evidence": "No real personal data is processed yet.",
+   "action": "Perform a DPIA before launch with real users."
+  },
+  {
+   "article": "Art. 44-49",
+   "principle": "International transfers",
+   "requirement": "Safeguard transfers outside the EEA.",
+   "status": "Partially compliant",
+   "evidence": "No app data leaves the device, but Inter is loaded from Google Fonts, which sends visitors' IP addresses to Google.",
+   "action": "Self-host the Inter font files."
+  }
+ ]
+}

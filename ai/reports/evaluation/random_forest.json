@@ -1,0 +1,183 @@
+{
+  "model": "RandomForestRegressor",
+  "target": "log1p(Food.com interactions after the 80th percentile date)",
+  "cutoff_utc": "2013-07-28T00:00:00+00:00",
+  "split": "fixed random 80/20 recipe split; all predictors use pre-cutoff data",
+  "train_recipes": 67024,
+  "test_recipes": 16757,
+  "metrics": {
+    "mae_log1p": 0.2611463703450911,
+    "rmse_log1p": 0.4068763493256399,
+    "r2_log1p": 0.21643638691465095,
+    "mae_interactions": 0.5010203834135144
+  },
+  "feature_importance": [
+    {
+      "feature": "numeric__prior_interactions",
+      "importance": 0.24502870291964624
+    },
+    {
+      "feature": "numeric__nutrition_calories",
+      "importance": 0.2016929554127647
+    },
+    {
+      "feature": "numeric__missingindicator_prior_mean_rating",
+      "importance": 0.19680022298421554
+    },
+    {
+      "feature": "numeric__minutes",
+      "importance": 0.10440670433256946
+    },
+    {
+      "feature": "numeric__n_steps",
+      "importance": 0.08989308100947381
+    },
+    {
+      "feature": "numeric__n_ingredients",
+      "importance": 0.07953787271434999
+    },
+    {
+      "feature": "numeric__prior_mean_rating",
+      "importance": 0.047370078945646515
+    },
+    {
+      "feature": "category__category_weeknight",
+      "importance": 0.007366150988746356
+    },
+    {
+      "feature": "category__category_60-minutes-or-less",
+      "importance": 0.006280376265379688
+    },
+    {
+      "feature": "category__category_30-minutes-or-less",
+      "importance": 0.005819582553848679
+    },
+    {
+      "feature": "category__category_time-to-make",
+      "importance": 0.004707232917985546
+    },
+    {
+      "feature": "category__category_15-minutes-or-less",
+      "importance": 0.0030639885999138323
+    },
+    {
+      "feature": "category__category_lactose",
+      "importance": 0.0020623626434583195
+    },
+    {
+      "feature": "category__category_course",
+      "importance": 0.0016120118957601514
+    },
+    {
+      "feature": "category__category_Uncategorized",
+      "importance": 0.0011059430092287905
+    },
+    {
+      "feature": "category__category_bacon",
+      "importance": 0.0010708798190680465
+    },
+    {
+      "feature": "category__category_curries",
+      "importance": 0.0008458283048691414
+    },
+    {
+      "feature": "category__category_celebrity",
+      "importance": 0.000596250180217885
+    },
+    {
+      "feature": "category__category_main-ingredient",
+      "importance": 0.00030779907895417164
+    },
+    {
+      "feature": "category__category_ham",
+      "importance": 0.0002511854342494973
+    },
+    {
+      "feature": "category__category_danish",
+      "importance": 0.00015885127190098982
+    },
+    {
+      "feature": "category__category_preparation",
+      "importance": 1.956735290414279e-05
+    },
+    {
+      "feature": "category__category_cuisine",
+      "importance": 1.8580766911649278e-06
+    },
+    {
+      "feature": "category__category_dietary",
+      "importance": 5.132881574145777e-07
+    },
+    {
+      "feature": "category__category_healthy",
+      "importance": 0.0
+    },
+    {
+      "feature": "category__category_low-protein",
+      "importance": 0.0
+    },
+    {
+      "feature": "category__category_number-of-servings",
+      "importance": 0.0
+    },
+    {
+      "feature": "category__category_occasion",
+      "importance": 0.0
+    },
+    {
+      "feature": "category__category_oysters",
+      "importance": 0.0
+    },
+    {
+      "feature": "category__category_infrequent_sklearn",
+      "importance": 0.0
+    }
+  ],
+  "saturation": [
+    {
+      "model": "random_forest",
+      "training_percent": 20,
+      "training_rows": 13404,
+      "mae_log1p": 0.26387593054861475,
+      "rmse_log1p": 0.4116641750962614,
+      "r2_log1p": 0.1978870712805939,
+      "mae_interactions": 0.5065037780275953
+    },
+    {
+      "model": "random_forest",
+      "training_percent": 40,
+      "training_rows": 26809,
+      "mae_log1p": 0.2646964324350894,
+      "rmse_log1p": 0.4101181144514846,
+      "r2_log1p": 0.20390064543235797,
+      "mae_interactions": 0.507335088399034
+    },
+    {
+      "model": "random_forest",
+      "training_percent": 60,
+      "training_rows": 40214,
+      "mae_log1p": 0.2621238228741935,
+      "rmse_log1p": 0.4089016471621365,
+      "r2_log1p": 0.20861632388024576,
+      "mae_interactions": 0.5034744871772963
+    },
+    {
+      "model": "random_forest",
+      "training_percent": 80,
+      "training_rows": 53619,
+      "mae_log1p": 0.2617285067148574,
+      "rmse_log1p": 0.4079516730290904,
+      "r2_log1p": 0.21228919108532718,
+      "mae_interactions": 0.5021621042307522
+    },
+    {
+      "model": "random_forest",
+      "training_percent": 100,
+      "training_rows": 67024,
+      "mae_log1p": 0.2609730758547809,
+      "rmse_log1p": 0.4071565068019416,
+      "r2_log1p": 0.21535695931392362,
+      "mae_interactions": 0.5007761430303947
+    }
+  ]
+}

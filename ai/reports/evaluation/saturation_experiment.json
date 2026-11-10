@@ -1,0 +1,172 @@
+[
+  {
+    "model": "tfidf_recommendation",
+    "training_percent": 20,
+    "training_rows": 2543,
+    "users_evaluated": 500,
+    "precision_at_k": 0.0008,
+    "recall_at_k": 0.001170617500731636,
+    "f1_at_k": 0.0009504574076274208,
+    "catalog_coverage": 0.051133311848748524,
+    "k": 10
+  },
+  {
+    "model": "tfidf_recommendation",
+    "training_percent": 40,
+    "training_rows": 4943,
+    "users_evaluated": 500,
+    "precision_at_k": 0.0006,
+    "recall_at_k": 0.000877963125548727,
+    "f1_at_k": 0.0007128430557205655,
+    "catalog_coverage": 0.049533903868418855,
+    "k": 10
+  },
+  {
+    "model": "tfidf_recommendation",
+    "training_percent": 60,
+    "training_rows": 7456,
+    "users_evaluated": 500,
+    "precision_at_k": 0.0004,
+    "recall_at_k": 0.000585308750365818,
+    "f1_at_k": 0.0004752287038137104,
+    "catalog_coverage": 0.046740907843067045,
+    "k": 10
+  },
+  {
+    "model": "tfidf_recommendation",
+    "training_percent": 80,
+    "training_rows": 10084,
+    "users_evaluated": 500,
+    "precision_at_k": 0.001,
+    "recall_at_k": 0.0014632718759145448,
+    "f1_at_k": 0.001188071759534276,
+    "catalog_coverage": 0.043279502512502836,
+    "k": 10
+  },
+  {
+    "model": "tfidf_recommendation",
+    "training_percent": 100,
+    "training_rows": 12834,
+    "users_evaluated": 500,
+    "precision_at_k": 0.0012,
+    "recall_at_k": 0.001755926251097454,
+    "f1_at_k": 0.001425686111441131,
+    "catalog_coverage": 0.0412504028359652,
+    "k": 10
+  },
+  {
+    "model": "random_forest",
+    "training_percent": 20,
+    "training_rows": 13404,
+    "mae_log1p": 0.26387593054861475,
+    "rmse_log1p": 0.4116641750962614,
+    "r2_log1p": 0.1978870712805939,
+    "mae_interactions": 0.5065037780275953
+  },
+  {
+    "model": "random_forest",
+    "training_percent": 40,
+    "training_rows": 26809,
+    "mae_log1p": 0.2646964324350894,
+    "rmse_log1p": 0.4101181144514846,
+    "r2_log1p": 0.20390064543235797,
+    "mae_interactions": 0.507335088399034
+  },
+  {
+    "model": "random_forest",
+    "training_percent": 60,
+    "training_rows": 40214,
+    "mae_log1p": 0.2621238228741935,
+    "rmse_log1p": 0.4089016471621365,
+    "r2_log1p": 0.20861632388024576,
+    "mae_interactions": 0.5034744871772963
+  },
+  {
+    "model": "random_forest",
+    "training_percent": 80,
+    "training_rows": 53619,
+    "mae_log1p": 0.2617285067148574,
+    "rmse_log1p": 0.4079516730290904,
+    "r2_log1p": 0.21228919108532718,
+    "mae_interactions": 0.5021621042307522
+  },
+  {
+    "model": "random_forest",
+    "training_percent": 100,
+    "training_rows": 67024,
+    "mae_log1p": 0.2609730758547809,
+    "rmse_log1p": 0.4071565068019416,
+    "r2_log1p": 0.21535695931392362,
+    "mae_interactions": 0.5007761430303947
+  },
+  {
+    "model": "kmeans",
+    "training_percent": 20,
+    "training_rows": 13423,
+    "inertia": 31761.16256986568,
+    "validation_silhouette": 0.27130854790831915
+  },
+  {
+    "model": "kmeans",
+    "training_percent": 40,
+    "training_rows": 26846,
+    "inertia": 63563.113861618556,
+    "validation_silhouette": 0.2665842581235842
+  },
+  {
+    "model": "kmeans",
+    "training_percent": 60,
+    "training_rows": 40270,
+    "inertia": 95463.43042348076,
+    "validation_silhouette": 0.27480917720789255
+  },
+  {
+    "model": "kmeans",
+    "training_percent": 80,
+    "training_rows": 53693,
+    "inertia": 127456.45833586063,
+    "validation_silhouette": 0.2692141023892909
+  },
+  {
+    "model": "kmeans",
+    "training_percent": 100,
+    "training_rows": 67117,
+    "inertia": 158493.67093778122,
+    "validation_silhouette": 0.26842361837401624
+  },
+  {
+    "model": "kmeans_users",
+    "training_percent": 20,
+    "training_rows": 9142,
+    "inertia": 192585.14758777423,
+    "validation_silhouette": null
+  },
+  {
+    "model": "kmeans_users",
+    "training_percent": 40,
+    "training_rows": 18285,
+    "inertia": 483992.297889119,
+    "validation_silhouette": null
+  },
+  {
+    "model": "kmeans_users",
+    "training_percent": 60,
+    "training_rows": 27427,
+    "inertia": 720031.9748052824,
+    "validation_silhouette": null
+  },
+  {
+    "model": "kmeans_users",
+    "training_percent": 80,
+    "training_rows": 36570,
+    "inertia": 958586.7961602993,
+    "validation_silhouette": null
+  },
+  {
+    "model": "kmeans_users",
+    "training_percent": 100,
+    "training_rows": 45713,
+    "inertia": 1237932.484260107,
+    "validation_silhouette": 0.36793266680619957
+  }
+]
