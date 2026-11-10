@@ -5,7 +5,9 @@ export async function callAi(path, { method = 'GET', body, query = '' } = {}) {
   if (!config.ai.serviceUrl || !config.ai.serviceToken) {
     throw new AppError(503, 'Recipe AI is not configured. Set AI_SERVICE_URL and AI_SERVICE_TOKEN.', 'AI_UNAVAILABLE');
   }
-  const url = new URL(path, config.ai.serviceUrl.endsWith('/') ? config.ai.serviceUrl : `${config.ai.serviceUrl}/`);
+  // Render's `fromService` host property has no scheme, so accept both forms.
+  const base = /^https?:\/\//i.test(config.ai.serviceUrl) ? config.ai.serviceUrl : `https://${config.ai.serviceUrl}`;
+  const url = new URL(path, base.endsWith('/') ? base : `${base}/`);
   if (query) url.search = query;
   try {
     const response = await fetch(url, {

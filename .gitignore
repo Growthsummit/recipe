@@ -22,7 +22,8 @@ __pycache__/
 ai/datasets/processed/*
 # Raw source datasets are large (100 MB+) and exceed GitHub's per-file limit.
 ai/datasets/raw/
-ai/models/
+# ai/models/ is intentionally committed: the Render inference service has no
+# persistent disk to stage the Joblib artifacts on, so they are read from the repo.
 ai/.anon_key
 ai/.venv/
 ai/reports/evaluation/user_cluster_assignments.csv

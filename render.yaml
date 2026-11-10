@@ -1,7 +1,7 @@
-# Render Blueprint for the RecipeBox backend API.
+# Render Blueprint for the RecipeBox backend API and the Recipe AI inference service.
 #
 # In Render: New -> Blueprint -> connect this repository. Render reads this file
-# and provisions the web service below. Variables marked `sync: false` are left
+# and provisions the web services below. Variables marked `sync: false` are left
 # blank on purpose and must be filled in the Render dashboard (they are secrets).
 services:
   - type: web
@@ -39,6 +39,20 @@ services:
         sync: false
       - key: EMAIL_FROM
         sync: false
+      # Recipe AI - the Python inference service defined further down in this file.
+      # The host property omits the scheme, which the backend normalises to https.
+      - key: AI_SERVICE_URL
+        fromService:
+          type: web
+          name: recipebox-ai
+          property: host
+      - key: AI_SERVICE_TOKEN
+        fromService:
+          type: web
+          name: recipebox-ai
+          envVarKey: AI_SERVICE_TOKEN
+      - key: AI_SERVICE_TIMEOUT_MS
+        value: "15000"
       # Blockchain (Sepolia) - optional, leave blank to disable
       - key: BLOCKCHAIN_NETWORK
         value: sepolia
@@ -48,3 +62,19 @@ services:
         sync: false
       - key: BLOCKCHAIN_CONTRACT_ADDRESS
         sync: false
+
+  # Inference-only Python service behind the "Recipe AI" screens. It loads the
+  # Joblib artifacts committed under ai/models/ and never trains during a request.
+  - type: web
+    name: recipebox-ai
+    runtime: python
+    plan: free
+    rootDir: ai
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      # Shared bearer token; the backend copies this same value via fromService.
+      - key: AI_SERVICE_TOKEN
+        generateValue: true
