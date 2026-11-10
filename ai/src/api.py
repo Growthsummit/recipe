@@ -19,6 +19,16 @@ from .recommendation_model import MODEL_PATH as RECOMMENDATION_MODEL, recommend,
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports" / "evaluation"
+SERVING_DIR = ROOT / "models" / "serving"
+
+
+def _serving(default: Path) -> Path:
+    """Prefer the slim RecipeHub-only artefact when it has been built."""
+    candidate = SERVING_DIR / default.name
+    return candidate if candidate.exists() else default
+
+
+MODELS = {"recommendation": _serving(RECOMMENDATION_MODEL), "random_forest": _serving(RF_MODEL), "clusters": _serving(CLUSTER_MODEL)}
 
 
 @asynccontextmanager
@@ -34,10 +44,10 @@ app = FastAPI(title="RecipeHub AI Inference", version="1.0.0", lifespan=lifespan
 
 @lru_cache(maxsize=1)
 def _models():
-    missing = [path.name for path in (RECOMMENDATION_MODEL, RF_MODEL, CLUSTER_MODEL) if not path.exists()]
+    missing = [path.name for path in MODELS.values() if not path.exists()]
     if missing:
         raise HTTPException(status_code=503, detail=f"AI models have not been trained: {', '.join(missing)}")
-    return {"recommendation": joblib.load(RECOMMENDATION_MODEL), "random_forest": joblib.load(RF_MODEL), "clusters": joblib.load(CLUSTER_MODEL)}
+    return {name: joblib.load(path) for name, path in MODELS.items()}
 
 
 def _authorize(authorization: Annotated[str | None, Header()] = None):
@@ -55,8 +65,8 @@ class IngredientRequest(BaseModel):
 
 @app.get("/health")
 def health():
-    required = (RECOMMENDATION_MODEL, RF_MODEL, CLUSTER_MODEL)
-    return {"status": "ok" if all(path.exists() for path in required) else "models_missing", "models_ready": all(path.exists() for path in required)}
+    ready = all(path.exists() for path in MODELS.values())
+    return {"status": "ok" if ready else "models_missing", "models_ready": ready}
 
 
 @app.get("/recommendations/{recipe_id}", dependencies=[Depends(_authorize)])

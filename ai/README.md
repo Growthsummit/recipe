@@ -27,10 +27,12 @@ ai/
   src/clustering_model.py      Recipe and eligible-user K-Means
   src/evaluation.py            Held-out metrics, reports and plots
   src/train_all.py             Explicit offline training command
+  src/serving_models.py        Slices the trained artefacts to the served RecipeHub subset
   src/api.py                   Inference-only FastAPI application
   dashboard/app.py             Streamlit dashboard using saved outputs
   tests/                       Python data, model and inference API tests
   models/                      Saved Joblib models (committed so the deployed service can load them)
+  models/serving/              RecipeHub-only artefact subset the API loads at runtime
   reports/                     Evaluation JSON/CSV and visualisations
 ```
 
@@ -125,6 +127,7 @@ Recipe details load similar items with a clear loading/error/empty state and sho
 - Deploy the existing Vite frontend to Vercel with `VITE_API_URL` pointing at Express. No AI token belongs in Vercel client variables.
 - Deploy Express to Render with `AI_SERVICE_URL` set to the private AI service URL, `AI_SERVICE_TOKEN` shared only with the AI process, `AI_SERVICE_TIMEOUT_MS` (default 15000), and the existing Turso variables.
 - Deploy `ai/src/api.py` as a separate Render Python web service running `uvicorn src.api:app --host 0.0.0.0 --port $PORT`. Set the same `AI_SERVICE_TOKEN`. The Joblib artifacts under `models/` are committed because the free tier offers no persistent disk to stage them; raw CSVs stay excluded. A private artifact store or persistent disk remains the better option if the models grow. Train in a one-off job, not in the web service startup path.
+- The API loads the RecipeHub-only subset in `models/serving/` when it is present. The full corpora are retained under `models/` for the offline evaluation workflow but exceed the free tier's memory, so `src/serving_models.py` slices them without re-fitting; run it (or `train_all`) after retraining to refresh the subset.
 - The Streamlit dashboard can be deployed separately for assessment with the processed data, saved models and reports available in its private runtime. Protect the dashboard if it is publicly reachable.
 - Turso connection credentials are used only by the one-off Node export. Training and inference need no database credentials.
 
