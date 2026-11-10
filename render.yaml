@@ -52,8 +52,10 @@ services:
           type: web
           name: recipebox-ai
           envVarKey: AI_SERVICE_TOKEN
+      # Free instances spin down after 15 minutes idle and have been measured
+      # taking over 60s to answer the first request, so keep this well above that.
       - key: AI_SERVICE_TIMEOUT_MS
-        value: "15000"
+        value: "90000"
       # Blockchain (Sepolia) - optional, leave blank to disable
       - key: BLOCKCHAIN_NETWORK
         value: sepolia
